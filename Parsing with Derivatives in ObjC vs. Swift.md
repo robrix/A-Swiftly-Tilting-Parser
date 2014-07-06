@@ -193,11 +193,11 @@
 
 ---
 
-# PARSE FOREST is KINDLY and ATTENTIVE
+# **PARSE FOREST**
 
-- Constructs and returns the matched parse trees
+- Construct and return any matched parse trees
 
-- Applies reductions
+- Apply reductions
 
 	- This is how you construct *your* objects
 
