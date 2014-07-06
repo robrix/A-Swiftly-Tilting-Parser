@@ -123,17 +123,15 @@
 
 ---
 
-# MEMOIZATION 📎
+# **MEMOIZATION** 📎
 
 ### WHEN YOU DO IT RIGHT, YOU ONLY DO IT ONCE
 
-- Memoize ≅ cache
-
 - The first time you call a memoized function with a set of arguments, it stores the results
 
-- The next time, it just looks them up
+- The next time, it looks them up; memoize ≅ cache
 
-- Can store results in a dictionary or an ivar
+- Can store results in a dictionary, ivar, etc.
 
 - Allows the derivative to “tie the knot” when building a cyclic grammar *from* a cyclic grammar
 
