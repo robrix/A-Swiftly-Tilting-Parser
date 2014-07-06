@@ -52,9 +52,11 @@
 
 - At each step, compute the derivative of the parser
 
-- Return the parsed input as a parse tree*
+- Compact it
 
-\*Technically, parse *forest*
+- Use it for the next step
+
+- Return the parsed input as a parse forest
 
 ---
 
