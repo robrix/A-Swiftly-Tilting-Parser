@@ -215,6 +215,36 @@
 
 ---
 
+# CONSEQUENCES of KEEPING it KLEENE ⚠️
+
+- Computing `δ(𝐿)` is doing work
+
+- Computing `δ(δ(𝐿))` is doing *more* work
+
+- `δ` is worst-case `O(G)` where *G* is the size of the grammar
+
+- If this is measurable in time, we lose performance
+
+- If visiting any parser causes side-effects (💥), they’ll be performed twice → potentially wrong results
+
+	- (“So don’t do that.”)
+
+---
+
+# CONJECTURE: NULLABILITY must CONVERGE in a SINGLE ITERATION
+
+- If `δ` returns Boolean, we start with `δ⁰(𝐿) = false`.
+
+- `δ¹(𝐿)` must be either `true` or `false`.
+
+	- If `false`, we’re done.
+
+	- Otherwise, `δ²(𝐿)` is `true` (we’re done), or `false` (implying non-monotone, invalidating use of Kleene fixpoint theorem).
+
+	- ∴ We never have to compute `δ²(𝐿)`.
+
+---
+
 # PARSE FOREST is KINDLY and ATTENTIVE
 
 - Constructs and returns the matched parse trees
