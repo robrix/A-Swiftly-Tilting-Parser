@@ -255,29 +255,29 @@
 
 ---
 
-# CHALLENGES common to OBJC & SWIFT
+# **CHALLENGES in OBJC & SWIFT**
 
-- Understanding the paper is hard 😨
+- Understanding the paper is hard 😖
 
 - ObjC & Swift are reference counted
 
 	- Cyclic grammars = refcycles (unless handled specially)
 
-	- Possible solution: a refcycle-breaking combinator
+	- Potential solution: a refcycle-breaking combinator
 
 - Pattern matching cyclic grammars is tricky
 
 ---
 
-# CHALLENGES UNIQUE to OBJC
+# **CHALLENGES UNIQUE to OBJC**
 
-- *Huge* impedance mismatch between the language & algorithm
+- Language/algorithm impedance mismatch
 
 - Verbose; dense; splits functions across many files
 
-- Pattern matching against cyclic grammars is *really* tricky
+- Pattern matching cyclic grammars is *really* tricky
 
-	- The language doesn’t have pattern matching at all 😭
+	- The language doesn’t have pattern matching 😭
 
 	- Implemented pattern matching for parsers *using* parsers 💫💥
 
@@ -285,41 +285,41 @@
 
 ---
 
-# CHALLENGES UNIQUE to SWIFT
+# **CHALLENGES UNIQUE to SWIFT**
 
 - Beta (& evolving!) compiler & IDE 😱
 
-	- No codegen for recursive `enum`s/`struct`s, classes with non-fixed layouts, & `enum`s with multiple non-fixed layouts
+	- No codegen yet for some features
 
 	- Crash-happy 😂💥 (as of Xcode 6b2)
 
-	- Unbelievably broken error reporting (ProTip™: extract nested expressions into constants to isolate issues)
+	- Bad error reporting (ProTip™: extract nested expressions into constants to isolate issues)
 
 - Some language design/prioritization choices need workarounds
 
-	- No best practices, so making those up as I go ✈️💺👖
+	- Making it up as I go ✈️💺👖
 
 ---
 
-# BENEFITS of SWIFT vs. OBJC
+# **BENEFITS of SWIFT vs. OBJC**
 
 - Much better tool:job match
 
-	- `enum`s make better parsers than inheritance does
+	- `enum` is a better fit than classes for parsers 👍
 
-	- Pattern matching ❤️
+	- Pattern matching 😍
 
 	- Operator overloading for constructing parsers ✨
 
-- Stronger typing → safer program 💪
+- Stronger typing → safer, better program 💪
 
-- Lets me solve *my* problem, not incidental ones 🙌
+- I solve *my* problems more; incidental ones less 🙌
 
-- Enables me to make mistakes faster & with greater confidence 🎢
+- Enables me to make mistakes faster, & with greater confidence 🎢
 
 ---
 
-# BENEFITS of OBJC vs. SWIFT
+# **BENEFITS of OBJC vs. SWIFT**
 
 - ObjC is stable
 
@@ -327,39 +327,39 @@
 
 - Familiarity
 
-- Unlikely to break the code on the day of the talk 😆
+- Unlikely to break my code on the day of the talk 😆
 
 ---
 
-# SUBTLETIES favouring OBJC?
+# **SUBTLETIES: OBJC > SWIFT…?**
 
-- Tougher defining parse trees’ type in Swift
+- It was initially hard describing parse trees’ type in Swift
 
-	- ObjC: sets, pairs, input characters, & AST, it’s all just `id`
+	- ObjC: sets, pairs, input, & AST are all `id`
 
-	- However: easy ≠ *good*
+	- However, easy ≠ *good*: 💥
 
 - Can use macros & dynamic proxies in ObjC
 
-	- No real equivalents in Swift
+	- No real equivalents in Swift 😕
 
-	- *Had* to use macros & dynamic proxies in ObjC
+	- *Had* to use macros & dynamic proxies in ObjC 😞
 
 ---
 
-# SUBTLETIES favouring SWIFT?
+# **SUBTLETIES: SWIFT > OBJC…?**
 
-- Much more readable because of `enum`/pattern matching
+- *Much* more readable with `enum`/pattern matching
 
-	- Didn’t actually know if this approach would work < 1w ago 😰
+	- Wasn’t sure this approach would work 1w ago 😰
 
-	- Would’ve required the ObjC solution, with a buggy compiler 😡
+	- If not, same solution as ObjC, with beta tools 😡
 
-- `@auto_closure` & operator overloading cleans up grammar construction
+- `@auto_closure` & operators are ✨ for grammars
 
 	- Potentially masks refcycles
 
-	- Hard to break cycles automatically; very hard to do manually
+	- Hard to break cycles automatically *or* manually
 
 ---
 
