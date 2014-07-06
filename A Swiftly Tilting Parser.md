@@ -18,7 +18,7 @@
 	
 	- Some combine other parsers
 
-- Together, they match specific patterns
+- Put together, they match patterns in text
 
 ---
 
@@ -56,11 +56,21 @@
 
 # **OPERATIONS**
 
-- Parsing
-- Derivative
-- Nullability
-- Parse forest
-- Compaction
+1. Parsing
+2. Derivative
+3. Nullability
+4. Parse forest
+5. Compaction
+
+---
+
+# **OPERATIONS**
+
+1. **Parsing**
+2. Derivative
+3. Nullability
+4. Parse forest
+5. Compaction
 
 ---
 
@@ -79,6 +89,16 @@
 ---
 
 # *parsing in Objective-C and Swift*
+
+---
+
+# **OPERATIONS**
+
+1. Parsing
+2. **Derivative**
+3. Nullability
+4. Parse forest
+5. Compaction
 
 ---
 
@@ -155,6 +175,16 @@
 
 ---
 
+# **OPERATIONS**
+
+1. Parsing
+2. Derivative
+3. **Nullability**
+4. Parse forest
+5. Compaction
+
+---
+
 # **NULLABILITY**
 
 - “Is this grammar nullable?” = “Will it match an empty string?”
@@ -207,6 +237,16 @@
 
 ---
 
+# **OPERATIONS**
+
+1. Parsing
+2. Derivative
+3. Nullability
+4. **Parse forest**
+5. Compaction
+
+---
+
 # **PARSE FOREST**
 
 - Construct and return any matched parse trees
@@ -222,6 +262,16 @@
 ---
 
 # *parse forest in Objective-C and Swift*
+
+---
+
+# **OPERATIONS**
+
+1. Parsing
+2. Derivative
+3. Nullability
+4. Parse forest
+5. **Compaction**
 
 ---
 
