@@ -227,8 +227,6 @@
 
 - If visiting any parser causes side-effects (💥), they’ll be performed twice → potentially wrong results
 
-	- (“So don’t do that”)
-
 ---
 
 # CONJECTURE: NULLABILITY must CONVERGE in a SINGLE ITERATION
