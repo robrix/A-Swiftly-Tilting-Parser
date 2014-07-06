@@ -379,21 +379,6 @@
 
 	- Increasingly, *fast fast fast*
 	
-
----
-
-# **EPILOGUE: AMBIGUITY is _TERRIFYING_ 😱**
-
-- Eats RAM, souls
-
-- Fastest, least productive way to use 10 GB of RAM
-
-- Easy to cause, hard to debug, harder to fix without rewriting grammar (including reductions)
-
-- Disambiguation is well-researched, but disambiguation in derivative parsers is not
-
-- Disambiguation by compaction/reduction looks promising
-
 ---
 
 # ¿Q&A!
