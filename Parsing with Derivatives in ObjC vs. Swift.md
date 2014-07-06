@@ -221,17 +221,17 @@
 
 ---
 
-# COMPACTION is QUICK
+# **COMPACTION**
 
 - Replace complex parsers with simpler equivalents
 
 - Enables better performance
 
-	- Worst case unchanged
+	- Worst case still terrible
 
 	- Expected case (unambiguous grammars) is O(*nG*)
 
-	- (Competitive with other general solutions)
+	- Quite reasonable in practice; *no* algorithm is fast under ambiguity
 
 ---
 
@@ -239,7 +239,7 @@
 
 ---
 
-# COMPACTION is AMBITIOUS
+# **COMPACTION in the FUTURE**
 
 - Generally must compact after derivative, or else cyclic → 💥
 
