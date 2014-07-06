@@ -382,17 +382,17 @@
 
 ---
 
-# EPILOGUE: AMBIGUITY is *TERRIFYING*
+# **EPILOGUE: AMBIGUITY is _TERRIFYING_ 😱**
 
 - Eats RAM, souls
 
 - Fastest, least productive way to use 10 GB of RAM
 
-- Easy to introduce, hard to locate in the grammar, harder to solve without rewriting the grammar → breaking assumptions about parse tree structure
+- Easy to cause, hard to debug, harder to fix without rewriting grammar (including reductions)
 
-- The literature on disambiguation is appropriately vast
+- Disambiguation is well-researched, but disambiguation in derivative parsers is not
 
-- Disambiguation via compaction (& reductions?) is going to be fun to explore
+- Disambiguation by compaction/reduction looks promising
 
 ---
 
