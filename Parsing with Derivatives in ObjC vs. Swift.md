@@ -102,13 +102,13 @@
 
 # LAZINESS 😴
 
-### DO ONLY WHAT YOU MUST, ONLY WHEN YOU MUST
+### DO ONLY WHAT YOU MUST, WHEN YOU MUST
 
-- Evaluate the parsers in alternations, concatenations, repetitions, & reductions at the last moment
+- Alternations, concatenations, repetitions, & reductions use closures to delay evaluation
 
 - Avoids nontermination when constructing the derivative
 
-- Necessary to even construct cyclic grammars!
+- Necessary to even *construct* cyclic grammars!
 
 ---
 
