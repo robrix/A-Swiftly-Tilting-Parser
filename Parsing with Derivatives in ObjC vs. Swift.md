@@ -102,7 +102,7 @@
 
 - Regexps can be matched with a list, but context-free languages need a stack
 
-- Naïve recursive functions will infinite loop 💥
+- Naïve implementations will infinite loop 💥
 
 ---
 
