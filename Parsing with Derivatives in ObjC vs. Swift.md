@@ -306,3 +306,17 @@
 	- Disambiguation? ✨
 
 ---
+
+# CHALLENGES common to OBJC & SWIFT
+
+- Understanding the paper is hard 😨
+
+- ObjC & Swift are reference counted
+
+	- Cyclic grammars = refcycles (unless handled specially)
+
+	- Possible solution: a refcycle-breaking combinator
+
+- Pattern matching cyclic grammars is tricky
+
+---
