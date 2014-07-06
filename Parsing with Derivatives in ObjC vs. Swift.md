@@ -16,7 +16,7 @@
 
 # PARSER COMBINATORS are NOT SCARY
 
-### We’ll use “parser” as a synonym.
+### We’ll use “parser” as a synonym
 
 - Executable LEGOs for parsing text
 
@@ -177,7 +177,7 @@
 
 - Nullability walks the grammar *eagerly*, defeating laziness 😴
 
-- Nullability computes pass/fail, not a structure. For example:
+- Nullability computes pass/fail, not a structure; e.g.:
 
 			δ(𝐿) = δ(𝐿) α | ϵ
 
@@ -211,7 +211,7 @@
 
 - Define `δ(𝐿) = δ(𝐿) α | ϵ` as the *least* fixed point of `δ`
 
-- Iterate `δⁿ(𝐿)` from `δ⁰(𝐿) = false` until `δⁿ(𝐿) = δⁿ⁻¹(𝐿)`.  (Kleene fixpoint theorem.)
+- Iterate `δⁿ(𝐿)` from `δ⁰(𝐿) = false` until `δⁿ(𝐿) = δⁿ⁻¹(𝐿)`  (Kleene fixpoint theorem)
 
 ---
 
@@ -227,21 +227,22 @@
 
 - If visiting any parser causes side-effects (💥), they’ll be performed twice → potentially wrong results
 
-	- (“So don’t do that.”)
+	- (“So don’t do that”)
 
 ---
 
 # CONJECTURE: NULLABILITY must CONVERGE in a SINGLE ITERATION
 
-- If `δ` returns Boolean, we start with `δ⁰(𝐿) = false`.
+- If `δ` returns Boolean, we start with `δ⁰(𝐿) = false`
 
-- `δ¹(𝐿)` must be either `true` or `false`.
+- `δ¹(𝐿)` must be either `true` or `false`
 
-	- If `false`, we’re done.
+	- If `false`, we’re done
 
-	- Otherwise, `δ²(𝐿)` is `true` (we’re done), or `false` (implying non-monotone, invalidating use of Kleene fixpoint theorem).
+	- Otherwise, `δ²(𝐿)` is `true` (we’re done), or `false` (implying non-monotone, invalidating use of Kleene fixpoint theorem)
 
-	- ∴ We never have to compute `δ²(𝐿)`.
+	- ∴ We never have to compute `δ²(𝐿)`
+
 
 ---
 
