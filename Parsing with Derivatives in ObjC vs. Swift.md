@@ -49,8 +49,8 @@
 - Parsing
 - Derivative
 - Nullability
-- Compaction
 - Parse forest
+- Compaction
 
 ---
 
