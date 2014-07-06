@@ -100,9 +100,13 @@
 
 ---
 
-# PARSE FOREST is THE LEAST OF YOUR CONCERNS
+# PARSE FOREST is KINDLY and ATTENTIVE
 
-- Returns the parse trees which were matched
+- Constructs and returns the matched parse trees
+
+- Applies reductions
+
+	- This is how you construct *your* objects
 
 ---
 
