@@ -163,7 +163,7 @@
 
 		δ(𝐿) = δ(𝐿) α | ϵ
 
-	Can’t finish `δ` before recurring: nontermination 💥 thus defeating memoization 📎
+	Can’t finish & memoize before recurring, thus defeating memoization 📎
 
 ---
 
