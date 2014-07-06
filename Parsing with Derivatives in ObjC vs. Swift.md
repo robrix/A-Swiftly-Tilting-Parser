@@ -363,7 +363,22 @@
 
 ---
 
-# ADVANTAGE: SWIFT
+# **ADVANTAGE: SWIFT**
+
+- Objective-C is the wrong tool for the job
+
+- Swift can access Apple’s frameworks & customers
+
+- Much more sound theoretically
+
+- Much more sound practically
+
+	- Safer
+
+	- More productive
+
+	- Increasingly, *fast fast fast*
+	
 
 ---
 
