@@ -80,15 +80,11 @@
 
 ---
 
-# INTERLUDE: RECURSION is KIND OF SCARY
+# RECURSION 🔄 and NONTERMINATION 💥
 
----
+- Context-free languages & grammars are recursive
 
-# CONTEXT-FREE LANGUAGES are RECURSIVE
-
-- NB: Not just the types: the object graph is cyclic!
-
-- The only difference from regular expressions
+- NB: Not just the *types*: the object graph is cyclic!
 
 - Key to why you can’t parse arbitrary HTML with a regexp
 
