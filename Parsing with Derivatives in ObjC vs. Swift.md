@@ -269,13 +269,17 @@
 
 # COMPACTION is SMART and AMBITIOUS
 
-- Without compaction, the derivative of concatenations can double the size of the grammar
+- Derivative of concatenation can double grammar size
 
-- Worst case is O(2²ⁿG²) where *G* is the size of the grammar and *n* the length of the input
+	- Worst case: O(2²*ⁿ**G*²) : *G* = grammar size, *n* = input length
 
-- Compaction replaces (some) complex parsers with simple ones
+- Compaction: complex parsers → equivalent simple ones
 
-- Key to both better performance and better features
+- Key to better performance & better features
+
+	- Worst case unchanged, but O(*nG*) for unambiguous grammars
+
+	- Incremental results & likely error reporting rely on compaction
 
 ---
 
