@@ -385,12 +385,8 @@
 
 ---
 
-# THANKS
+# **_THANK YOU!_ 🙇**
 
-- The Swift team at Apple
-- Matt Might
-- Kelly Rix
-- David Smith
-- You ❤️
+### David Darais, Matt Might, Kelly Rix,<br/>David Smith, Daniel Spiewak,<br/>the Swift team, & especially you 💟
 
 ### https://github.com/robrix/A-Swiftly-Tilting-Parser<br/> rob.rix@github.com ❧ @rob_rix
