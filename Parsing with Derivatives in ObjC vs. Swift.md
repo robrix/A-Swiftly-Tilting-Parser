@@ -6,14 +6,6 @@
 
 ---
 
-# THE DERIVATIVE of PARSERS
-### in
-# OBJECTIVE-C
-### &
-# SWIFT
-
----
-
 # PARSER COMBINATORS are NOT SCARY
 
 ### We’ll use “parser” as a synonym
