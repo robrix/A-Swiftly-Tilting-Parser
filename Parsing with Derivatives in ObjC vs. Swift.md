@@ -126,6 +126,34 @@
 
 ---
 
+# PROTECTING your PARSERS from NONTERMINATION 😎
+
+1. Laziness 😴
+2. **Memoization 📎**
+
+---
+
+# MEMOIZATION 📎
+
+### WHEN YOU DO IT RIGHT, YOU ONLY DO IT ONCE
+
+- Memoize ≅ cache
+
+- The first time you call a memoized function with a set of arguments, it stores the results
+
+- The next time, it just looks them up
+
+- Can store results in a dictionary or an ivar
+
+- Allows the derivative to “tie the knot” when building a cyclic grammar *from* a cyclic grammar
+
+---
+
+# *memoization in Objective-C and Swift*
+
+---
+
+
 # NULLABILITY is REALLY NOT VERY SCARY AT ALL
 
 - “Can it match the empty string?”
