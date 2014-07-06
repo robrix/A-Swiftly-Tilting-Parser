@@ -44,6 +44,16 @@
 
 ---
 
+# BREAKING it DOWN
+
+- Parsing
+- Derivative
+- Nullability
+- Compaction
+- Parse forest
+
+---
+
 # PARSING with DERIVATIVES: NOT SCARY
 
 - Go through the input character by character
