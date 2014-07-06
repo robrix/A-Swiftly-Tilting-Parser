@@ -136,3 +136,46 @@ It also accepts some expressions that make somewhat less sense:
 
 As long as the parentheses are balanced, it can match an arbitrary number of them.
 
+
+# PARSING WITH DERIVATIVES from 10,000ft
+
+At a very high level, derivative parsing is straightforward:
+
+	given a parser and a sequence of input
+	for each character in the input
+		parser = derivative of parser with respect to character
+	retrieve the parse trees from the last returned parser
+
+The derivative produces a new parser for every character in the input. If that parse is successful, it will hold onto it in a null parse; otherwise, it will return the empty parser.
+
+Finally, the parse trees are gathered up from the parser and returned. An empty parser hasn’t any parse trees; likewise, if the final parser can’t match at the end of the string—like if the input was truncated halfway through a function—then it won’t return any either. But if it was able to successfully parse the file, then all of the input that it squirrelled away in null parses will be returned as part of a final parse forest.
+
+As part of this gathering operation, any *reductions* in the parser graph will be applied, calling their functions on input parse trees and returning whatever objects you like—for example,  nodes in an abstract syntax tree. Thus, the input is turned directly into your model objects before it’s even returned to you.
+
+We’re using the derivative to produce a new parser for every character in the input, which tells us a couple of things about how the derivative works:
+
+1. It has to return a parser which is ready to parse the next character.
+2. As mentioned above, it has to store the parsed input internally somewhere.
+
+The second one is hard to picture, so let’s take an example. If our grammar were the parser `'h' ++ 'i' | 'h' ++ 'a'`, and we computed the derivative with respect to `h`, the result would have to be like the original, but as tho `h` had been parsed: `'i' | 'a'`.
+
+But we don’t just want to know pass/fail whether the input string was one of `hi` or `ha` or not; we want to know *which* it actually was. Therefore, that `h` can’t just disappear.
+
+That’s where null parses come in. The derivative of our original grammar with respect to `h` is actually a parser which matches as tho `h` had been matched *and which contains the matched input*. It’s not just `'i' | 'a'`, but rather `ε↓{'h'} ++ ('i' | 'a')`.
+
+That `ε↓{'h'}` is also referred to as a “null reduction parser”—it’s a null parser—a parser which matches the null, i.e. empty, string—which reduces to the parse trees enclosed.
+
+Let’s say the next character in our input is `'a'`. The derivative of the current parser with respect to `'a'` has got to be a parser which matches at the end of the input, and which incorporates the already-parsed character `'h'` as well as the just-now-parsed character `'a'`. Since our original parser ends after that alternation, it also shouldn’t accept any new input characters.
+
+Sure enough, the derivative is `ε↓{'h'} ++ (∅ | ε↓{'a'})`. Note that since the `'i'` character parser didn’t match, it returned the empty parser.
+
+Since we’re at the end of the input, we now gather the parse forest together. The parse forest of a null reduction parse is whatever they’re holding. Alternations merge their parsers’ parse forests. Concatenations chain their parsers’ parse trees.
+
+Thus, the resulting parse tree is a single list of input characters:
+
+	('h' 'a')
+
+We can successfully distinguish that the input text was laughing at us, rather than greeting us. That looks like progress to me!
+
+However, we’ve glossed over a lot of details. Let’s look *slightly* closer.
+
