@@ -263,26 +263,46 @@
 
 ---
 
-> “The implementation is brief. The code is pure. The theory is elegant. So, how does this perform in practice? In brief, it is awful.” — *Parsing with Derivatives*
+# PARSING ~~with DERIVATIVES~~ without COMPACTION
+
+> *The implementation is brief. The code is pure. The theory is elegant. So, how does this perform in practice? In brief, it is awful.*
+
+- Derivative of concatenation doubles grammar size
+
+- Worst case: O(2²*ⁿ**G*²) : *G* = grammar size, *n* = input length 💥
 
 ---
 
-# COMPACTION is SMART and AMBITIOUS
+# COMPACTION is QUICK
 
-- Derivative of concatenation can double grammar size
+- Replace complex parsers with simpler equivalents
 
-	- Worst case: O(2²*ⁿ**G*²) : *G* = grammar size, *n* = input length
+- Enables better performance
 
-- Compaction: complex parsers → equivalent simple ones
+	- Worst case unchanged
 
-- Key to better performance & better features
+	- Expected case (unambiguous grammars) is O(*nG*)
 
-	- Worst case unchanged, but O(*nG*) for unambiguous grammars
-
-	- Incremental results & likely error reporting rely on compaction
+	- (Competitive with other general solutions)
 
 ---
 
 # *compaction in Objective-C and Swift*
+
+---
+
+# COMPACTION is AMBITIOUS
+
+- Generally must compact after derivative, or else cyclic → 💥
+
+	- Can we avoid complex parsers altogether in some cases?
+
+- Enables better features
+
+	- Incremental results: 🔢 vs. 1️⃣…2️⃣…3️⃣…4️⃣…
+
+	- (Good) error reporting?
+
+	- Disambiguation? ✨
 
 ---
