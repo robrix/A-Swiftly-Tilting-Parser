@@ -27,3 +27,17 @@
 - Together, they match specific patterns
 
 ---
+
+# THE DERIVATIVE of PARSERS is ALSO NOT SCARY
+
+- *Recognizes* and *parses* programming languages*
+
+	- Recognizing: “is my input valid?”
+
+	- Parsing: “how is the input structured?”
+
+- Validity and structure are defined by the grammar, which is made of parser combinators
+
+*Technically, context-free languages
+
+---
