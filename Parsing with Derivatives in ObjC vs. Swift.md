@@ -113,3 +113,23 @@
 # *parse forest in Objective-C and Swift*
 
 ---
+
+> “The implementation is brief. The code is pure. The theory is elegant. So, how does this perform in practice? In brief, it is awful.” — *Parsing with Derivatives*
+
+---
+
+# COMPACTION is SMART and AMBITIOUS
+
+- Without compaction, the derivative of concatenations can double the size of the grammar
+
+- Worst case is O(2²ⁿG²) where *G* is the size of the grammar and *n* the length of the input
+
+- Compaction replaces (some) complex parsers with simple ones
+
+- Key to both better performance and better features
+
+---
+
+# *compaction in Objective-C and Swift*
+
+---
