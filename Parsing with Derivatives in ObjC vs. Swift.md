@@ -6,7 +6,7 @@
 
 ---
 
-# PARSER COMBINATORS are NOT SCARY
+# PARSER COMBINATORS
 
 ### We’ll use “parser” as a synonym
 
@@ -22,7 +22,7 @@
 
 ---
 
-# THE DERIVATIVE of PARSERS is ALSO NOT SCARY
+# THE DERIVATIVE of PARSERS
 
 - Might, Darais, & Spiewak’s 2011 paper *[Parsing with Derivatives—a Functional Pearl](http://matt.might.net/papers/might2011derivatives.pdf)*
 
@@ -36,7 +36,7 @@
 
 ---
 
-# BREAKING it DOWN
+# OPERATIONS
 
 - Parsing
 - Derivative
@@ -46,7 +46,7 @@
 
 ---
 
-# PARSING with DERIVATIVES: NOT SCARY
+# PARSING
 
 - Go through the input character by character
 
@@ -62,7 +62,7 @@
 
 ---
 
-# DERIVATIVE is SLIGHTLY SCARY
+# DERIVATIVE
 
 - Returns the parser that would match *after* the current one
 
