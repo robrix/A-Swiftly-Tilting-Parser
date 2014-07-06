@@ -14,11 +14,16 @@
 
 # PARSER COMBINATORS are NOT SCARY
 
-- Parser combinators are executable LEGOs for grammars.
-	- Each one is a tiny program.
-	- A grammar is a bunch of parsers stuck together.
+### We’ll use “parser” as a synonym.
 
-- (We’ll use “parser” as a synonym.)
+- Executable LEGOs for parsing text
 
+	- Each one is a tiny program
+
+	- Some parse input directly
+	
+	- Some combine other parsers
+
+- Together, they match specific patterns
 
 ---
