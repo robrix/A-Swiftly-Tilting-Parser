@@ -189,20 +189,6 @@
 
 ---
 
-# CONJECTURE: NULLABILITY must CONVERGE in a SINGLE ITERATION
-
-- If `δ` returns Boolean, we start with `δ⁰(𝐿) = false`
-
-- `δ¹(𝐿)` must be either `true` or `false`
-
-	- If `false`, we’re done
-
-	- Otherwise, `δ²(𝐿)` is `true` (we’re done), or `false` (implying non-monotone, invalidating use of Kleene fixpoint theorem)
-
-	- ∴ We never have to compute `δ²(𝐿)`
-
----
-
 # *fixpoints in Objective-C and Swift*
 
 ---
