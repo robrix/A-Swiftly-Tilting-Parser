@@ -187,6 +187,34 @@
 
 ---
 
+# PROTECTING your PARSERS from NONTERMINATION 😎
+
+1. Laziness 😴
+2. Memoization 📎
+3. **~~*Math*~~ Fixed points 🔨☝️**
+
+---
+
+# **~~*MATH*~~ FIXED POINTS 🔨☝️**
+
+### NOW *THIS* is SCARY ✅
+
+---
+
+# FIXED POINTS at a GLANCE
+
+- If `𝑓(𝑥) = 𝑥`, then `𝑥` is a fixpoint of `𝑓`; e.g. `𝑥²` is fixed at `0` and `1`
+
+- `δ(𝐿)` is null if its argument is nullable, empty otherwise
+
+- A fixpoint of `δ` is therefore either null or empty (true/false)
+
+- Define `δ(𝐿) = δ(𝐿) α | ϵ` as the *least* fixed point of `δ`
+
+- Iterate `δⁿ(𝐿)` from `δ⁰(𝐿) = false` until `δⁿ(𝐿) = δⁿ⁻¹(𝐿)`.  (Kleene fixpoint theorem.)
+
+---
+
 # PARSE FOREST is KINDLY and ATTENTIVE
 
 - Constructs and returns the matched parse trees
