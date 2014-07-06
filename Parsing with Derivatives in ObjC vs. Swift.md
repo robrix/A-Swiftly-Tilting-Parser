@@ -436,3 +436,13 @@
 # ¿Q&A!
 
 ---
+
+# THANKS
+
+- The Swift team at Apple
+- Matt Might
+- Kelly Rix
+- David Smith
+- You ❤️
+
+### https://github.com/robrix/A-Swiftly-Tilting-Parser<br/> rob.rix@github.com ❧ @rob_rix
