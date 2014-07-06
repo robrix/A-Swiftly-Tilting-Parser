@@ -112,6 +112,22 @@
 
 ---
 
+# LAZINESS 😴
+
+### DO ONLY WHAT YOU MUST, ONLY WHEN YOU MUST
+
+- Evaluate the parsers in alternations, concatenations, repetitions, & reductions at the last moment
+
+- Avoids nontermination when constructing the derivative
+
+- Necessary to even construct cyclic grammars!
+
+---
+
+# *laziness in Objective-C and Swift*
+
+---
+
 # NULLABILITY is REALLY NOT VERY SCARY AT ALL
 
 - “Can it match the empty string?”
