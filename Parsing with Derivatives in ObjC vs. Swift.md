@@ -189,20 +189,6 @@
 
 ---
 
-# CONSEQUENCES of KEEPING it KLEENE ⚠️
-
-- Computing `δ(𝐿)` is doing work
-
-- Computing `δ(δ(𝐿))` is doing *more* work
-
-- `δ` is worst-case `O(G)` where *G* is the size of the grammar
-
-- If this is measurable in time, we lose performance
-
-- If visiting any parser causes side-effects (💥), they’ll be performed twice → potentially wrong results
-
----
-
 # CONJECTURE: NULLABILITY must CONVERGE in a SINGLE ITERATION
 
 - If `δ` returns Boolean, we start with `δ⁰(𝐿) = false`
