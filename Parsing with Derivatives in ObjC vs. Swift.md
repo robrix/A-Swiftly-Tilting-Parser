@@ -12,8 +12,7 @@
 	- Each one is a tiny program.
 	- A grammar is a bunch of parsers stuck together.
 
-- All together, they can *recognize* and *parse* context-free languages. 
+- (We’ll use “parser” as a synonym.)
 
-- We’ll use “parser” as a synonym.
 
 ---
