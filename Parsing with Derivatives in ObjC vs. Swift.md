@@ -106,9 +106,7 @@
 
 # PROTECTING your PARSERS from NONTERMINATION 😎
 
-1. Laziness 😴
-2. Memoization 📎
-3. ~~*Math*~~ Fixed points 🔨☝️
+1. **Laziness 😴**
 
 ---
 
