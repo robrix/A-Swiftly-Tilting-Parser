@@ -80,7 +80,7 @@
 
 ---
 
-# RECURSION 🔄 and NONTERMINATION 💥
+# RECURSION 🔄 & NONTERMINATION 💥
 
 - Context-free languages & grammars are recursive
 
