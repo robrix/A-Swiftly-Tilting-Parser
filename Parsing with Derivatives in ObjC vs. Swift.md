@@ -320,3 +320,19 @@
 - Pattern matching cyclic grammars is tricky
 
 ---
+
+# CHALLENGES UNIQUE to OBJC
+
+- *Huge* impedance mismatch between the language & algorithm
+
+- Verbose; dense; splits functions across many files
+
+- Pattern matching against cyclic grammars is *really* tricky
+
+	- The language doesn’t have pattern matching at all 😭
+
+	- Implemented pattern matching for parsers *using* parsers 💫💥
+
+- Nontermination is much harder to solve, e.g. `-isEqual:` for equal cyclic grammars
+
+---
