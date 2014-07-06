@@ -141,9 +141,9 @@
 
 ---
 
-# NULLABILITY is NOT SCARY AT ALL
+# **NULLABILITY**
 
-- “Can it match the empty string?”
+- “Is this grammar nullable?” = “Will it match an empty string?”
 
 - Equivalent: “Can it match at the end of the input?”
 
@@ -155,21 +155,15 @@
 
 ---
 
-# BUT SUDDENLY: NONTERMINATION
-
----
-
-# NULLABILITY is ~~NOT~~ **ACTUALLY QUITE SCARY** ~~AT ALL~~
+# **NULLABILITY and NONTERMINATION 💥**
 
 - Nullability walks the grammar *eagerly*, defeating laziness 😴
 
 - Nullability computes pass/fail, not a structure; e.g.:
 
-			δ(𝐿) = δ(𝐿) α | ϵ
+		δ(𝐿) = δ(𝐿) α | ϵ
 
-	- It can’t finish `δ(𝐿)` before recurring: nontermination 💥
-
-	- Thus defeating memoization 📎
+	Can’t finish `δ` before recurring: nontermination 💥 thus defeating memoization 📎
 
 ---
 
