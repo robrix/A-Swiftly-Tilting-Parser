@@ -179,7 +179,7 @@
 
 - Nullability computes pass/fail, not a structure. For example:
 
-			δ(𝐿) = δ(𝐿) α | ε
+			δ(𝐿) = δ(𝐿) α | ϵ
 
 	- It can’t finish `δ(𝐿)` before recurring: nontermination 💥
 
