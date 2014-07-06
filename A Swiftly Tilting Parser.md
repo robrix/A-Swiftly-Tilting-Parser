@@ -1,14 +1,14 @@
-# A SWIFTLY TILTING PARSER
+# **A SWIFTLY TILTING PARSER**
 
-## (in memory of Madeleine L’Engle)
+## _in memory of Madeleine L’Engle_
 
 ### https://github.com/robrix/A-Swiftly-Tilting-Parser <br/> rob.rix@github.com ❧ @rob_rix
 
 ---
 
-# PARSER COMBINATORS
+# **PARSER COMBINATORS**
 
-### We’ll use “parser” as a synonym
+### (We’ll use “parser” as a synonym)
 
 - Executable LEGOs for parsing text
 
@@ -22,7 +22,7 @@
 
 ---
 
-# THE DERIVATIVE of PARSERS
+# **THE DERIVATIVE of PARSERS**
 
 - Might, Darais, & Spiewak’s 2011 paper *[Parsing with Derivatives—a Functional Pearl](http://matt.might.net/papers/might2011derivatives.pdf)*
 
@@ -36,7 +36,7 @@
 
 ---
 
-# OPERATIONS
+# **OPERATIONS**
 
 - Parsing
 - Derivative
@@ -46,7 +46,7 @@
 
 ---
 
-# PARSING
+# **PARSING**
 
 - Go through the input character by character
 
@@ -64,7 +64,7 @@
 
 ---
 
-# DERIVATIVE
+# **DERIVATIVE**
 
 - Returns the parser that would match *after* the current one
 
@@ -80,7 +80,7 @@
 
 ---
 
-# RECURSION 🔄 & NONTERMINATION 💥
+# **RECURSION 🔄 & NONTERMINATION 💥**
 
 - Context-free languages & grammars are recursive
 
@@ -94,15 +94,13 @@
 
 ---
 
-# PROTECTING your PARSERS from NONTERMINATION 😎
+# **PROTECTING your PARSERS from NONTERMINATION 😎**
 
 1. **Laziness 😴**
 
 ---
 
-# LAZINESS 😴
-
-### DO ONLY WHAT YOU MUST, WHEN YOU MUST
+# **LAZINESS 😴**
 
 - Alternations, concatenations, repetitions, & reductions use closures to delay evaluation
 
@@ -116,7 +114,7 @@
 
 ---
 
-# PROTECTING your PARSERS from NONTERMINATION 😎
+# **PROTECTING your PARSERS from NONTERMINATION 😎**
 
 1. Laziness 😴
 2. **Memoization 📎**
@@ -124,8 +122,6 @@
 ---
 
 # **MEMOIZATION** 📎
-
-### WHEN YOU DO IT RIGHT, YOU ONLY DO IT ONCE
 
 - The first time you call a memoized function with a set of arguments, it stores the results
 
