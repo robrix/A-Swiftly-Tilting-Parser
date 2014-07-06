@@ -26,15 +26,13 @@
 
 - Might, Darais, & Spiewak’s 2011 paper *[Parsing with Derivatives—a Functional Pearl](http://matt.might.net/papers/might2011derivatives.pdf)*
 
-- *Recognizes* and *parses* programming languages*
+- *Recognizes* and *parses* context-free languages
 
 	- Recognizing: “is my input valid?”
 
 	- Parsing: “how is the input structured?”
 
 - Validity and structure are defined by the grammar, which is made of parser combinators
-
-*Technically, context-free languages
 
 ---
 
