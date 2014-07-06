@@ -22,6 +22,24 @@
 
 ---
 
+# **KINDS of PARSERS**
+
+- Literal: match a specific character
+
+- Alternation: match x or y
+
+- Concatenation: match x and then y
+
+- Repetition: match x zero or more times
+
+- Reduction: match x & map with a function
+
+- Null: match the empty string; hold parse trees
+
+- Empty: never ever match
+
+---
+
 # **THE DERIVATIVE of PARSERS**
 
 - Might, Darais, & Spiewak’s 2011 paper *[Parsing with Derivatives—a Functional Pearl](http://matt.might.net/papers/might2011derivatives.pdf)*
