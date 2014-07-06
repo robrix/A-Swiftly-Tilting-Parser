@@ -414,3 +414,21 @@
 	- Hard to break cycles automatically; very hard to do manually
 
 ---
+
+# ADVANTAGE: SWIFT
+
+---
+
+# EPILOGUE: AMBIGUITY is *TERRIFYING*
+
+- Eats RAM, souls
+
+- Fastest, least productive way to use 10 GB of RAM
+
+- Easy to introduce, hard to locate in the grammar, harder to solve without rewriting the grammar → breaking assumptions about parse tree structure
+
+- The literature on disambiguation is appropriately vast
+
+- Disambiguation via compaction (& reductions?) is going to be fun to explore
+
+---
