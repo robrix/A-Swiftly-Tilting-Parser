@@ -380,3 +380,37 @@
 - Familiarity
 
 - Unlikely to break the code on the day of the talk 😆
+
+---
+
+# SUBTLETIES favouring OBJC?
+
+- Tougher defining parse trees’ type in Swift
+
+	- ObjC: sets, pairs, input characters, & AST, it’s all just `id`
+
+	- However: easy ≠ *good*
+
+- Can use macros & dynamic proxies in ObjC
+
+	- No real equivalents in Swift
+
+	- *Had* to use macros & dynamic proxies in ObjC
+
+---
+
+# SUBTLETIES favouring SWIFT?
+
+- Much more readable because of `enum`/pattern matching
+
+	- Didn’t actually know if this approach would work < 1w ago 😰
+
+	- Would’ve required the ObjC solution, with a buggy compiler 😡
+
+- `@auto_closure` & operator overloading cleans up grammar construction
+
+	- Potentially masks refcycles
+
+	- Hard to break cycles automatically; very hard to do manually
+
+---
