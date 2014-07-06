@@ -352,3 +352,31 @@
 	- No best practices, so making those up as I go ✈️💺👖
 
 ---
+
+# BENEFITS of SWIFT vs. OBJC
+
+- Much better tool:job match
+
+	- `enum`s make better parsers than inheritance does
+
+	- Pattern matching ❤️
+
+	- Operator overloading for constructing parsers ✨
+
+- Stronger typing → safer program 💪
+
+- Lets me solve *my* problem, not incidental ones 🙌
+
+- Enables me to make mistakes faster & with greater confidence 🎢
+
+---
+
+# BENEFITS of OBJC vs. SWIFT
+
+- ObjC is stable
+
+- `clang` is stable
+
+- Familiarity
+
+- Unlikely to break the code on the day of the talk 😆
