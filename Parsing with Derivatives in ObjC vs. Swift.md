@@ -85,3 +85,17 @@
 # *derivative in Objective-C and Swift*
 
 ---
+
+# NULLABILITY is REALLY NOT VERY SCARY AT ALL
+
+- “Can it match the empty string?”
+
+- Equivalent: “Can it match at the end of the input?”
+
+- Equivalent: “Can it be skipped?”
+
+---
+
+# *nullability in Objective-C and Swift*
+
+---
