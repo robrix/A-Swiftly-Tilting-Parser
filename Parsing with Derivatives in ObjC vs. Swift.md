@@ -69,3 +69,70 @@ The empty parser is contrarian—it refuses to match anything. This isn’t gene
 
 For now, think of it as a marker that indicates that some part of the grammar failed to match something. This doesn’t mean an error case, however; if your language can parse `x` or `y`, and you pass it `x`, the `y` branch will obviously fail.
 
+
+# COMBINING PARSERS
+
+The key detail is that on their own, each parser combinator is very simple; even boring. Combine them, however, and you can describe any context-free language you want—often in many different ways.
+
+We’ve referred to regular expressions several times, but it’s important to note that context-free languages are more expressive—they can match more sophisticated kinds of patterns. This is why you can’t use a regular expression (on its own) to parse arbitrary HTML, for example.
+
+The difference is that context-free languages are recursive, whereas regular expressions are not. What does that mean, exactly? It means that this is a valid definition of a language:
+
+	S -> S | 'x'
+
+(You can read `->` as “is matched by matching…”, i.e. “S is matched by matching S or an 'x'.”) This is one of many—infinite!—context-free grammars you can construct to match the empty string.
+
+This is an example of a left-recursive grammar. If you were writing a naïve recursive descent parser, you’d be stuck in an infinite loop!
+
+Here’s a right-recursive grammar:
+
+	S -> ε | S
+
+(“S is matched by matching an 'x', or S.”) Since this is right-recursive, a recursive descent parser can match this just fine.
+
+And here’s a mutually-recursive grammar:
+
+	S -> T | ε
+	T -> ε | S
+
+Mutual recursion is the key to interesting context-free grammars.
+
+Now let’s look at an informal grammar for addition and multiplication with integers:
+
+	let expression =
+		integer
+	|	addition
+	|	'(' ++ expression ++ ')'
+	
+	let integer = '-'? ++ (0...9)+
+	
+	let addition = multiplication ++ '+' ++ multiplication
+	let multiplication = expression ++ '*' ++ expression
+
+(This isn’t actually valid Swift code, incidentally, but it’s not that far off!)
+
+An expression is an integer, or addition expression, or a parenthesized expression.
+
+An integer is an optionally negative series of digits.
+
+Addition is two multiplications separated by a `+`.
+
+Multiplication is two expressions separated by a `*`.
+
+Here are some expressions described by this grammar:
+
+	0
+	1 + 1
+	1 + 2 * 3
+	(1 + 1) * 3
+
+It also accepts some expressions that make somewhat less sense:
+
+	-0
+	000000000000000
+	(1)
+	(1 * 1)
+	((((((1))))))
+
+As long as the parentheses are balanced, it can match an arbitrary number of them.
+
