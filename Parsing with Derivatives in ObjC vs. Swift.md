@@ -339,16 +339,16 @@
 
 # CHALLENGES UNIQUE to SWIFT
 
-- Beta compiler & IDE 😱
+- Beta (& evolving!) compiler & IDE 😱
 
-	- No codegen for recursive `enum`s/`struct`s; hence `Box`, `Delay`, & `Combinator` distinct from `Language`
+	- No codegen for recursive `enum`s/`struct`s, classes with non-fixed layouts, & `enum`s with multiple non-fixed layouts
 
-	- No codegen for `enum`s with different type-parametric payloads
+	- Crash-happy 😂💥 (as of Xcode 6b2)
 
-	- Crash-happy 💥 (as of Xcode 6b2)
-
-- Hard to extend pattern matching
+	- Unbelievably broken error reporting (ProTip™: extract nested expressions into constants to isolate issues)
 
 - Some language design/prioritization choices need workarounds
+
+	- No best practices, so making those up as I go ✈️💺👖
 
 ---
