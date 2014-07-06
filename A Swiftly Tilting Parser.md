@@ -383,13 +383,15 @@
 
 - Much more sound theoretically
 
+	- Inheritance is holding us back
+
+	- Better type system → more flexibility, less effort
+
 - Much more sound practically
 
-	- Safer
+	- Safer & more productive
 
-	- More productive
-
-	- Increasingly going to be *fast fast fast*
+	- Types enable better optimizations → _fast!_
 	
 ---
 
