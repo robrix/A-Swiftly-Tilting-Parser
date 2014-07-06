@@ -43,3 +43,15 @@
 *Technically, context-free languages
 
 ---
+
+# PARSING with DERIVATIVES: NOT SCARY
+
+- Go through the input character by character
+
+- At each step, compute the derivative of the parser
+
+- Return the parsed input as a parse tree*
+
+\*Technically, parse *forest*
+
+---
