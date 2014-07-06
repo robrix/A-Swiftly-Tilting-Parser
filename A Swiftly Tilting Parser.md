@@ -377,11 +377,9 @@
 
 ---
 
-# **ADVANTAGE: SWIFT**
+# **SWIFT ❤️**
 
 - Objective-C is the wrong tool for the job
-
-- Swift can access Apple’s frameworks & customers
 
 - Much more sound theoretically
 
@@ -391,7 +389,7 @@
 
 	- More productive
 
-	- Increasingly, *fast fast fast*
+	- Increasingly going to be *fast fast fast*
 	
 ---
 
