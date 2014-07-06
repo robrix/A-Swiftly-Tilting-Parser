@@ -72,7 +72,7 @@
 
 - On failure, returns the empty parser
 
-- Holds eye contact slightly longer than comfortable 
+- Different definition for each kind of parser
 
 ---
 
