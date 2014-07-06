@@ -179,3 +179,7 @@ We can successfully distinguish that the input text was laughing at us, rather t
 
 However, we’ve glossed over a lot of details. Let’s look *slightly* closer.
 
+
+# PARSING WITH DERIVATIVES from DOWN THE BLOCK
+
+If you were to actually build the parser described above and to pretty-print the derivative at each step, you’d see that it’s significantly different from what we described above.
