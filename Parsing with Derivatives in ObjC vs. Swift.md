@@ -104,6 +104,14 @@
 
 ---
 
+# PROTECTING your PARSERS from NONTERMINATION
+
+1. Laziness 😴
+2. Memoization 📎
+3. ~~*Math*~~ Fixed points 🔨☝️
+
+---
+
 # NULLABILITY is REALLY NOT VERY SCARY AT ALL
 
 - “Can it match the empty string?”
