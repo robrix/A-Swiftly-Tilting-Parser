@@ -336,3 +336,19 @@
 - Nontermination is much harder to solve, e.g. `-isEqual:` for equal cyclic grammars
 
 ---
+
+# CHALLENGES UNIQUE to SWIFT
+
+- Beta compiler & IDE 😱
+
+	- No codegen for recursive `enum`s/`struct`s; hence `Box`, `Delay`, & `Combinator` distinct from `Language`
+
+	- No codegen for `enum`s with different type-parametric payloads
+
+	- Crash-happy 💥 (as of Xcode 6b2)
+
+- Hard to extend pattern matching
+
+- Some language design/prioritization choices need workarounds
+
+---
