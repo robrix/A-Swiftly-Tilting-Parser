@@ -86,6 +86,24 @@
 
 ---
 
+# INTERLUDE: RECURSION is KIND OF SCARY
+
+---
+
+# CONTEXT-FREE LANGUAGES are RECURSIVE
+
+- NB: Not just the types: the object graph is cyclic!
+
+- The only difference from regular expressions
+
+- Key to why you can’t parse arbitrary HTML with a regexp
+
+- Regexps can be matched with a list, but context-free languages need a stack
+
+- Naïve recursive functions will infinite loop 💥
+
+---
+
 # NULLABILITY is REALLY NOT VERY SCARY AT ALL
 
 - “Can it match the empty string?”
