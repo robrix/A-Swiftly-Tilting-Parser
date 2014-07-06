@@ -177,19 +177,13 @@
 
 # **~~*MATH*~~ FIXED POINTS 🔨☝️**
 
-### NOW *THIS* is SCARY ✅
+- If `𝑓(𝑥) = 𝑥`, `𝑓` is fixed at `𝑥`; `𝑥²` is fixed at `0` and `1`
 
----
+- If `𝐿` is nullable, `δ(𝐿)` is null, otherwise empty
 
-# FIXED POINTS at a GLANCE
+- Any fixpoints of `δ` are likewise either null or empty
 
-- If `𝑓(𝑥) = 𝑥`, then `𝑥` is a fixpoint of `𝑓`; e.g. `𝑥²` is fixed at `0` and `1`
-
-- `δ(𝐿)` is null if its argument is nullable, empty otherwise
-
-- A fixpoint of `δ` is therefore either null or empty (true/false)
-
-- Define `δ(𝐿) = δ(𝐿) α | ϵ` as the *least* fixed point of `δ`
+- Interpret `δ(𝐿) = δ(𝐿) α | ϵ` as a fixpoint of `δ`
 
 - Iterate `δⁿ(𝐿)` from `δ⁰(𝐿) = false` until `δⁿ(𝐿) = δⁿ⁻¹(𝐿)`  (Kleene fixpoint theorem)
 
