@@ -243,6 +243,9 @@
 
 	- ∴ We never have to compute `δ²(𝐿)`
 
+---
+
+# *fixpoints in Objective-C and Swift*
 
 ---
 
