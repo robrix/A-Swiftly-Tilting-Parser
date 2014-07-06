@@ -1,6 +1,6 @@
 # A Swiftly Tilting Parser
 
-[My talk](https://github.com/robrix/A-Swiftly-Tilting-Parser/blob/master/A%20Swiftly%20Tilting%20Parser.md) about the [derivative of parser combinators](http://matt.might.net/articles/parsing-with-derivatives/), to be given at [TACOW](https://tacow.org/) on July 8th, 2014.
+[My talk](https://github.com/robrix/A-Swiftly-Tilting-Parser/blob/master/A%20Swiftly%20Tilting%20Parser.pdf) about the [derivative of parser combinators](http://matt.might.net/articles/parsing-with-derivatives/), to be given at [TACOW](https://tacow.org/) on July 8th, 2014.
 
 ### References
 
