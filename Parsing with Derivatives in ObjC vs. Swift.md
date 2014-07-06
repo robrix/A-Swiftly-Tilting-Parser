@@ -211,11 +211,11 @@
 
 ---
 
-# PARSING ~~with DERIVATIVES~~ without COMPACTION
+# **WITHOUT COMPACTION**
 
-> *The implementation is brief. The code is pure. The theory is elegant. So, how does this perform in practice? In brief, it is awful.*
+> *“The implementation is brief. The code is pure. The theory is elegant. So, how does this perform in practice? In brief, it is awful.”*
 
-- Derivative of concatenation doubles grammar size
+- Derivative of concatenation *doubles* grammar size
 
 - Worst case: O(2²*ⁿ**G*²) : *G* = grammar size, *n* = input length 💥
 
