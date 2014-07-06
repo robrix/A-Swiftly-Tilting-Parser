@@ -155,7 +155,7 @@
 
 ---
 
-# NULLABILITY is REALLY NOT VERY SCARY AT ALL
+# NULLABILITY is NOT SCARY AT ALL
 
 - “Can it match the empty string?”
 
@@ -166,6 +166,24 @@
 ---
 
 # *nullability in Objective-C and Swift*
+
+---
+
+# BUT SUDDENLY: NONTERMINATION
+
+---
+
+# NULLABILITY is ~~NOT~~ **ACTUALLY QUITE SCARY** ~~AT ALL~~
+
+- Nullability walks the grammar *eagerly*, defeating laziness 😴
+
+- Nullability computes pass/fail, not a structure. For example:
+
+			δ(𝐿) = δ(𝐿) α | ε
+
+	- It can’t finish `δ(𝐿)` before recurring: nontermination 💥
+
+	- Thus defeating memoization 📎
 
 ---
 
