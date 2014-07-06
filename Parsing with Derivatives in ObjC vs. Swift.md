@@ -69,3 +69,15 @@
 # *musical interlude*
 
 ---
+
+# DERIVATIVE is SLIGHTLY SCARY
+
+- Returns the parser that would match *after* the current one
+
+- Stores matched input in parse trees
+
+- On failure, returns the empty parser
+
+- Holds eye contact slightly longer than comfortable 
+
+---
