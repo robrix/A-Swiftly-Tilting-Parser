@@ -398,6 +398,8 @@ HMRDelay([self derivativeWithRespectToObject:c]);
 
 ^By contrast, this is an extremely trustworthy little class. It’s less automatic, but also less magical, while still allowing conveniences such as `@auto_closure` to wrap the construction of new delays.
 
+^I have hash & equality & a convenience constructor as functions, but this is a sufficient description of the class itself.
+
 ---
 
 # **PROTECTING your PARSERS from NONTERMINATION 😎**
