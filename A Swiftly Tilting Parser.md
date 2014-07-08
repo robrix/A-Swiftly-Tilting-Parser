@@ -741,6 +741,32 @@ var nullable: Bool {
 
 ---
 
+# **PARSE FOREST in SWIFT**
+
+```swift
+var parseForest: ParseTree<Alphabet> {
+  let parseForest: Combinator<Alphabet> -> ParseTree<Alphabet> =
+      fixpoint(ParseTree.Nil) { recur, combinator in
+    switch combinator.language {
+    case let .Null(x): return x
+      
+    case let .Alternation(x, y): return recur(x) + recur(y)
+      
+    case let .Concatenation(x, y): return recur(x) * recur(y)
+      
+    case let .Repetition(x): return .Nil
+      
+    case let .Reduction(x, f): return map(recur(x), f)
+      
+    default: return .Nil
+    }
+  }
+  return parseForest(self)
+}
+```
+
+---
+
 # **OPERATIONS**
 
 1. Parsing
