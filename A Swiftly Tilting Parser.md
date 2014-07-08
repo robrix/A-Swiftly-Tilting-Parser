@@ -370,6 +370,30 @@ HMRDelay([self derivativeWithRespectToObject:c]);
 
 ---
 
+# **LAZINESS 😴 in SWIFT**
+
+```swift
+@final class Delay<T> {
+	var _thunk: (() -> T)?
+	
+	@lazy var value: T = {
+		let value = self._thunk!()
+		self._thunk = nil
+		return value
+	}()
+	
+	init(_ thunk: () -> T) {
+		_thunk = thunk
+	}
+	
+	@conversion func __conversion() -> T {
+		return value
+	}
+}
+```
+
+---
+
 # **PROTECTING your PARSERS from NONTERMINATION 😎**
 
 1. Laziness 😴
