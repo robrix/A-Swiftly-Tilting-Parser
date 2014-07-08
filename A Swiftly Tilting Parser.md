@@ -829,6 +829,35 @@ var parseForest: ParseTree<Alphabet> {
 
 ---
 
+# **COMPACTION in SWIFT**
+
+```swift
+func compact() -> Combinator<Alphabet> {
+  let compact: Recur -> Recur = fixpoint(self) { recur, combinator in
+    switch combinator.destructure(recur) {
+    /// Alternations with Empty are equivalent to the other alternative.
+    case let .Alternation(x, .Empty): return Combinator(x)
+    case let .Alternation(.Empty, y): return Combinator(y)
+      
+    /// Concatenations with Empty are equivalent to Empty.
+    case .Concatenation(.Empty, _), .Concatenation(_, .Empty):
+      return Combinator.empty
+      
+    /// Repetitions of empty are equivalent to parsing the empty string.
+    case .Repetition(.Empty): return Combinator(parsed: .Nil)
+      
+    /// Reductions of reductions compose.
+    case let .Reduction(.Reduction(x, f), g):
+      return Combinator(.Reduction(x, compose(g, f)))
+
+    default: return combinator
+    }
+  }
+  return compact(self)
+```
+
+---
+
 # **COMPACTION in the FUTURE**
 
 - Generally must compact after derivative, or else cyclic → 🔄
