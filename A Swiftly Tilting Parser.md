@@ -1218,6 +1218,14 @@ func compact() -> Combinator<Alphabet> {
   return compact(self)
 ```
 
+^This is a _little_ disingenuous: the Objective-C implementation has been the testbed for experiments in producing incremental results, which at least partly relies upon new compaction rules which the Swift implementation lacks.
+
+^Even without that, however, the Objective-C implementation is unreadable, and almost impossible to reason on. While we should be careful not to conflate the flaws of _this implementation_ with the flaws of _the language_ or _the approach_, I find many of the Objective-C implementation’s flaws to be all too typical of Objective-C and object-oriented programming in general: inheritance leads to tight coupling; data abstraction is used as a poor substitute for conceptual abstraction; and we lose potential for reuse by always viewing our objects through the too-narrow lens of their classes.
+
+^Swift is not finished yet, but it already goes some distance towards encouraging practices which are more easily reasoned upon; and I expect this trend to continue as the language evolves.
+
+^In the meantime, I’m looking forward to exploring more of what can be accomplished with compaction in Swift.
+
 ---
 
 # **COMPACTION in the FUTURE 🚀**
