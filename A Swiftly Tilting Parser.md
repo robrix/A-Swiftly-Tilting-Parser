@@ -467,6 +467,8 @@ func derive(c: Alphabet) -> Recur {
 
 ^This allows us to avoid nontermination when computing the derivative, but it’s actually necessary even to construct a cyclic grammar in the first place—both implementations are immutable, so a closure allows us to postpone evaluation and therefore to close the loop.
 
+^We use somewhat different approaches to laziness in Objective-C and Swift. Let’s look at the Objective-C implementation.
+
 ---
 
 # **LAZINESS 😴 in OBJC**
