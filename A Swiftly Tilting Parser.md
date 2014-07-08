@@ -608,6 +608,33 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 ---
 
+# **FIXPOINTS 🔨☝️ in SWIFT**
+
+```swift
+var nullable: Bool {
+  let nullable: Combinator<Alphabet> -> Bool = fixpoint(false) { recur, combinator in
+    switch combinator.language {
+    case .Null: return true
+      
+    case let .Alternation(left, right):
+      return recur(left) || recur(right)
+      
+    case let .Concatenation(first, second):
+      return recur(first) && recur(second)
+      
+    case .Repetition: return true
+      
+    case let .Reduction(c, _): return recur(c)
+      
+    default: return false
+    }
+  }
+  return nullable(self)
+}
+```
+
+---
+
 # **OPERATIONS**
 
 1. Parsing
