@@ -546,12 +546,16 @@ func | <Alphabet : Alphabet>
 
 ^By contrast with the Objective-C version, this is very easy to trust. It’s less automatic, but also less magical, while still allowing conveniences such as `@auto_closure` to avoid having to manually insert delays when constructing a grammar.
 
+^Laziness alone is insufficient, however—we also need to avoid redundant work to deal with nontermination.
+
 ---
 
 # **PROTECTING your PARSERS from NONTERMINATION 😎**
 
 1. Laziness 😴
 2. **Memoization 📎**
+
+^That’s where memoization comes in.
 
 ---
 
