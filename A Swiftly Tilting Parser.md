@@ -726,6 +726,10 @@ var nullable: Bool {
 }
 ```
 
+^Swift already has pattern matching. The pattern matching & memoization boilerplate recedes, and we’re left with a much more lucid definition:
+
+^Null parsers are nullable; alternations are nullable if either of their parsers is; concatenations are nullable if both of their parsers are; repetitions are nullable; reductions are nullable if their parsers are; all other parsers are not.
+
 ---
 
 # **NULLABILITY and NONTERMINATION 🔄**
