@@ -50,6 +50,14 @@
 
 - Put together, they match patterns in text
 
+^Parser combinators, or parsers, are kind of like executable LEGOs for parsing text.
+
+^Each one parses one very simple kind of pattern, either parsing input directly or combining other parsers—hence _combinators_.
+
+^When you assemble simple parsers together like this, the result is a more complex parser which parses a grammar. For our purposes, the word “grammar” refers to the specific combination of parsers with which we’re trying to parse our language.
+
+^You can invent new parsers to do all kinds of fun things, but we’re only going to consider a few common ones.
+
 ---
 
 # **KINDS of PARSERS**
