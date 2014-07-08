@@ -431,6 +431,18 @@ func derive(c: Alphabet) -> Recur {
 
 - Naïve implementations will infinite loop 🔄
 
+^Stepping back for a moment, we need to understand the relationship between the _language_ we are parsing and the _grammar_ that is parsing it.
+
+^Context-free languages are a superset of regular languages: All regular languages are context-free, but not all context-free languages are regular.
+
+^Context-free grammars correspond to context-free languages, while regular expressions correspond to regular languages.
+
+^The differentiating factor between the two is that context-free grammars are recursive, while regular expressions are not. This is why you need a parser instead of regular expressions to parse arbitrary HTML or many other programming languages: regular expressions cannot express arbitrary recursion, and arbitrary recursion is the key to arbitrary nesting.
+
+^Since this means that the grammar—not the types of parsers, but the actual object graph at runtime—is cyclic, a naïve recursive implementation of the derivative like we saw before will immediately fall into an infinite loop when we use it for any language which is context-free but not regular.
+
+^Now what?
+
 ---
 
 # **PROTECTING your PARSERS from NONTERMINATION 😎**
