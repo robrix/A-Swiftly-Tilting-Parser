@@ -463,7 +463,34 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 ---
 
-# *fixpoints in Objective-C and Swift*
+# **FIXPOINTS in OBJC**
+
+```objectivec
+bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
+  NSMutableDictionary *cache = [NSMutableDictionary new];
+  bool (^__weak __block recur)(HMRCombinator *);
+  bool (^isNullable)(HMRCombinator *) = ^bool (HMRCombinator *combinator) {
+    return [HMRMemoize(cache[combinator], @NO, HMRMatch(combinator, @[
+      [[[HMRBind() concat:HMRBind()] quote] then:^(HMRCombinator *fst, HMRCombinator *snd) {
+        return @(recur(fst) && recur(snd));
+      }],
+      
+      [[[HMRBind() or:HMRBind()] quote] then:^(HMRCombinator *left, HMRCombinator *right) {
+        return @(recur(left) || recur(right));
+      }],
+      
+      [[[HMRBind() map:REDIdentityMapBlock] quote] then:^(HMRCombinator *combinator) {
+        return @(recur(combinator));
+      }],
+      
+      [[[HMRAny() repeat] quote] then:^{ return @YES; }],
+      [[HMRNull quote] then:^{ return @YES; }],
+    ])) boolValue];
+  };
+  recur = isNullable;
+  return isNullable(combinator);
+}
+```
 
 ---
 
