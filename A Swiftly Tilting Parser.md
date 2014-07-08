@@ -218,6 +218,16 @@ enum Language<Alphabet : Alphabet, Recur> {
 
 - Return the parsed input as a parse forest
 
+^The parsing operation goes through the input one character at a time. At the end, it returns a parse forest—the structured results we’re looking for.
+
+^Starting with the parser you give it—the grammar for your language—it computes the derivative with respect to that input character, and compacts it.
+
+^This derivative is a new parser, which it uses for the next step.
+
+^Finally, it returns the last parser’s parse forest.
+
+^Let’s look at it in Objective-C.
+
 ---
 
 # **PARSING in OBJC**
