@@ -101,7 +101,11 @@
 @end
 ```
 
-^Standard fare; factory methods and properties.
+^This is pretty standard fare. Each kind of parser combinator is a class which (ultimately) inherits from `HMRCombinator`.
+
+^With the exception of `HMREmpty` (which is effectively a singleton), each class has a factory method to produce new instances and a property to access its contents.
+
+^Now let’s look at nonterminal parsers in Objective-C.
 
 ---
 
@@ -132,7 +136,15 @@
 @end
 ```
 
-^More factory methods and properties. A bunch of monotonous lines declaring the kinds of parsers we are interested in.
+^This is pretty much the same as the terminal parsers: each is a class with a factory method and properties. You can see that these parsers are made from other parsers: their properties are `HMRCombinator`s.
+
+^While we’re looking at these classes grouped together, the actual project uses the normal Objective-C conventions for organization: each of these interfaces is in its own header file, with the implementations all in separate `.m` files.
+
+^This can make for a lot of noise and searching around to find all of the different pieces.
+
+^Even grouped together like this, it makes for a lot of boilerplate, and we haven’t even seen the implementations: every one of those factory methods has an implementation and a corresponding `-init` method.
+
+^Let’s compare this with how parsers are defined in Swift.
 
 ---
 
