@@ -6,6 +6,20 @@
 
 ---
 
+# **THE DERIVATIVE of PARSERS**
+
+- Might, Darais, & Spiewak’s 2011 paper *[Parsing with Derivatives—a Functional Pearl](http://matt.might.net/papers/might2011derivatives.pdf)*
+
+- *Recognizes* and *parses* context-free languages
+
+	- Recognizing: “is my input valid?”
+
+	- Parsing: “how is the input structured?”
+
+- Validity and structure are defined by the grammar, which is made of parser combinators
+
+---
+
 # **PARSER COMBINATORS**
 
 ### (We’ll use “parser” as a synonym)
@@ -105,20 +119,6 @@ enum Language<Alphabet : Alphabet, Recur> {
 ```
 
 ^This is the whole thing. I don’t have to write a single init method. I don’t have to write properties. I don’t even have to inject delays into the graph when I discover it needs them.
-
----
-
-# **THE DERIVATIVE of PARSERS**
-
-- Might, Darais, & Spiewak’s 2011 paper *[Parsing with Derivatives—a Functional Pearl](http://matt.might.net/papers/might2011derivatives.pdf)*
-
-- *Recognizes* and *parses* context-free languages
-
-	- Recognizing: “is my input valid?”
-
-	- Parsing: “how is the input structured?”
-
-- Validity and structure are defined by the grammar, which is made of parser combinators
 
 ---
 
