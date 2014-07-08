@@ -371,7 +371,18 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 
 ---
 
-# *memoization in Objective-C and Swift*
+# **MEMOIZATION in OBJC**
+
+```objectivec
+#define HMRMemoize(var, initial, recursive) \
+  ((var) ?: ((var = (initial)), (var = (recursive))))
+
+-(HMRCombinator *)derivative:(id<NSObject, NSCopying>)object {
+  return HMRMemoize(_derivativesByElements[object],
+    [HMRCombinator empty],
+    [self deriveWithRespectToObject:object].compaction);
+}
+```
 
 ---
 
