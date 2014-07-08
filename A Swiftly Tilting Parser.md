@@ -1242,6 +1242,16 @@ func compact() -> Combinator<Alphabet> {
 
 	- Disambiguation? ✨
 
+^In general, we have to do the compaction after the derivative rather than recognizing and replacing complex parsers when we’re constructing them, in order to avoid nontermination.
+
+^However, there are likely many cases in which we can do this early and avoid even allocating complex parsers—a huge win in terms of performance. What are these cases? When can we skip compaction? There is interesting work to be done.
+
+^Whenever it’s performed, compaction as a technique also enables better features. For example, the work I’ve been doing on producing incremental results is largely a matter of compaction.
+
+^It seems likely that elegant integration of good error reporting would hinge on the feature as well, since compaction may be the earliest point at which you have visibility into failed alternatives.
+
+^Finally, disambiguation is an important tool to have at hand; I suspect that compaction will provide the a good perspective from which to apply disambiguation techniques during parsing.
+
 ---
 
 # **CHALLENGES in OBJC & SWIFT**
