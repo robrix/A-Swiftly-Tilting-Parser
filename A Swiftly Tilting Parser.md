@@ -463,6 +463,10 @@ func derive(c: Alphabet) -> Recur {
 
 - Necessary to even *construct* cyclic grammars!
 
+^Nonterminal parsers use closures to delay their traversal of the object graph.
+
+^This allows us to avoid nontermination when computing the derivative, but it’s actually necessary even to construct a cyclic grammar in the first place—both implementations are immutable, so a closure allows us to postpone evaluation and therefore to close the loop.
+
 ---
 
 # **LAZINESS 😴 in OBJC**
