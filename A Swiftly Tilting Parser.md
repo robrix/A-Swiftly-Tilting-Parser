@@ -166,7 +166,17 @@ enum Language<Alphabet : Alphabet, Recur> {
 }
 ```
 
-^This is the whole thing. I don’t have to write a single init method. I don’t have to write properties. I don’t even have to inject delays into the graph when I discover it needs them.
+^In Swift, we declare an `enum` representing all of the different kinds of languages we care about. This is the entire thing, by the way—I haven’t removed anything except for comments.
+
+^Note in particular that there isn’t a single `-init` or factory method. The `case`s in Swift’s `enum`s are what Haskell would call “constructors”—each one of them lets you construct an instance of this `enum` with the parameters specified in the parentheses.
+
+^Note also that there aren’t any properties. Instead, you retrieve the values by pattern matching.
+
+^You’ll note that this isn’t entirely free of implementation detail—`Delay` is significant (we’ll come back to it later), but both it and `Box` are only used here as workarounds for (current) deficiencies in the compiler. (I don’t know if they’ll be fixed in 1.0 or not.)
+
+^Similarly, this is `Language` instead of `Combinator` or `Parser` 
+
+^Even so, with this definition alone, we have an order of magnitude less boilerplate. Even better, it’s _declarative_: instead of saying _how to make parsers_, I say _what parsers are_; it’s the _compiler’s_ job to know how to construct & access them.
 
 ---
 
