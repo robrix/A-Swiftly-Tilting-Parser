@@ -847,8 +847,7 @@ func compact() -> Combinator<Alphabet> {
     case .Repetition(.Empty): return Combinator(parsed: .Nil)
       
     /// Reductions of reductions compose.
-    case let .Reduction(.Reduction(x, f), g):
-      return Combinator(.Reduction(x, compose(g, f)))
+    case let .Reduction(.Reduction(x, f), g): return Combinator(x --> compose(g, f))
 
     default: return combinator
     }
