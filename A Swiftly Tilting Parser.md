@@ -752,11 +752,27 @@ var nullable: Bool {
 
 1. Laziness 😴
 2. Memoization 📎
-3. **~~*Math*~~ Fixed points 🔨☝️**
+3. *Math* ✖️➗
 
 ---
 
-# **~~*MATH*~~ FIXED POINTS 🔨☝️**
+# **PROTECTING your PARSERS from NONTERMINATION 😎**
+
+1. Laziness 😴
+2. Memoization 📎
+3. **~~*Math* ✖️➗~~**
+
+---
+
+# **PROTECTING your PARSERS from NONTERMINATION 😎**
+
+1. Laziness 😴
+2. Memoization 📎
+3. **~~*Math* ✖️➗~~ Fixed points 🔨☝️**
+
+---
+
+# **~~*MATH* ✖️➗~~ FIXED POINTS 🔨☝️**
 
 - If `𝑓(𝑥) = 𝑥`, `𝑓` is fixed at `𝑥`; `𝑥²` is fixed at `0` and `1`
 
