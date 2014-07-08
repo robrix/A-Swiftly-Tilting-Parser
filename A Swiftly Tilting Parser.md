@@ -324,7 +324,31 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 
 ---
 
-# *laziness in Objective-C and Swift*
+# **LAZINESS in OBJC**
+
+```objectivec
+@implementation HMRDelayCombinator {
+	HMRCombinator *(^_block)(void);
+	HMRCombinator *_forced;
+}
+
+-(instancetype)initWithBlock:(HMRCombinator *(^)(void))block {…}
+
+-(HMRCombinator *)forced {
+	HMRCombinator *(^block)(void) = _block;
+	_block = nil;
+	if (block) _forced = block();
+	return _forced;
+}
+
+-(NSString *)description {
+	return [@"λ." stringByAppendingString:[self.forced description]];
+}
+
+-(id)forwardingTargetForSelector:(SEL)selector {
+	return self.forced;
+}
+```
 
 ---
 
