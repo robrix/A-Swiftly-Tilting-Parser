@@ -87,9 +87,9 @@
 # **TERMINAL PARSERS in OBJC**
 
 ```objectivec
-@interface HMRLiteral : HMRPredicateCombinator
+@interface HMRLiteral : HMRTerminal
 +(instancetype)literal:(id)object;
-@property (readonly) id<NSObject, NSCopying> object;
+@property (readonly) id object;
 @end
 
 @interface HMREmpty : HMRTerminal
