@@ -829,6 +829,8 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 }
 ```
 
+^This is nullability as we saw it before.
+
 ---
 
 # **FIXPOINTS 🔨☝️ in OBJC**
@@ -859,6 +861,10 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
   return isNullable(combinator);
 }
 ```
+
+^And this is nullability using a fixpoint. We make a recursive block, cache `@NO` first, and then compute our results.
+
+^In Swift?
 
 ---
 
