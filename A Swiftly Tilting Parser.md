@@ -1040,6 +1040,18 @@ var parseForest: ParseTree<Alphabet> {
 
 # **WITHOUT COMPACTION**
 
+> *“The implementation is brief. The code is pure. The theory is elegant. So, how does this perform in practice?”*
+
+---
+
+# **WITHOUT COMPACTION**
+
+> *“The implementation is brief. The code is pure. The theory is elegant. So, how does this perform in practice? In brief, it is awful.”*
+
+---
+
+# **WITHOUT COMPACTION**
+
 > *“The implementation is brief. The code is pure. The theory is elegant. So, how does this perform in practice? In brief, it is awful.”*
 
 - Derivative of concatenation *doubles* grammar size
