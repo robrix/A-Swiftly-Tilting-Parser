@@ -1424,6 +1424,6 @@ func compact() -> Combinator<Alphabet> {
 
 # **_THANK YOU!_ 🙇**
 
-### David Darais, Matt Might, Kelly Rix, David Smith,<br/>Daniel Spiewak, the Swift team, @DecksetApp,<br/>& especially you 💟
+### David Darais, Kris Markel, Matt Might,<br/>Kelly Rix, David Smith, Daniel Spiewak,<br/>the Swift team, @DecksetApp,<br/>& especially you 💟
 
 ### https://github.com/robrix/A-Swiftly-Tilting-Parser<br/> rob.rix@github.com 🚀 @rob_rix
