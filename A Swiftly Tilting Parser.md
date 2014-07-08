@@ -375,8 +375,7 @@ return _compaction ?: HMRDelay([self compact]);
 # **MEMOIZATION in OBJC**
 
 ```objectivec
-#define HMRMemoize(var, initial, recursive) \
-  ((var) ?: ((var = (initial)), (var = (recursive))))
+#define HMRMemoize(x, start, body) ((x) ?: ((x = (start)), (x = (body))))
 
 -(HMRCombinator *)derivative:(id<NSObject, NSCopying>)object {
   return HMRMemoize(_derivativesByElements[object],
