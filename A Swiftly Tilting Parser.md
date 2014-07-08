@@ -2,7 +2,7 @@
 
 ## _in memory of Madeleine L’Engle_
 
-### https://github.com/robrix/A-Swiftly-Tilting-Parser <br/> rob.rix@github.com ❧ @rob_rix
+### https://github.com/robrix/A-Swiftly-Tilting-Parser <br/> rob.rix@github.com 🚀 @rob_rix
 
 ---
 
@@ -1072,4 +1072,4 @@ func compact() -> Combinator<Alphabet> {
 
 ### David Darais, Matt Might, Kelly Rix, David Smith,<br/>Daniel Spiewak, the Swift team, @DecksetApp,<br/>& especially you 💟
 
-### https://github.com/robrix/A-Swiftly-Tilting-Parser<br/> rob.rix@github.com ❧ @rob_rix
+### https://github.com/robrix/A-Swiftly-Tilting-Parser<br/> rob.rix@github.com 🚀 @rob_rix
