@@ -972,7 +972,7 @@ func compact() -> Combinator<Alphabet> {
 
 	- No codegen yet for some features
 
-	- Crash-happy 😂💥 (as of Xcode 6b2)
+	- Crash-happy 😂💥 (as of Xcode 6b3)
 
 	- Bad error reporting (ProTip™: extract nested expressions into constants to isolate issues)
 
