@@ -1076,6 +1076,14 @@ var parseForest: ParseTree<Alphabet> {
 
 	- Quite reasonable in practice; *no* algorithm is fast under ambiguity
 
+^Compaction simplifies the grammar by matching complex parsers and replacing them with simpler equivalents.
+
+^By compacting after each derivative, we use less memory (because the grammar is simpler), and we run faster (again, because the grammar is simpler).
+
+^The degenerate worst case is still terrible, but unambiguous grammars now execute in time proportionate to the size of the input multiplied by the size of the grammar—polynomial time.
+
+^Let’s look at the code.
+
 ---
 
 # **COMPACTION in OBJC**
