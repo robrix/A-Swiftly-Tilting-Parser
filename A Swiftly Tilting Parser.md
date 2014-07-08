@@ -992,6 +992,8 @@ var nullable: Bool {
 }
 ```
 
+^In Objective-C, we’re once again using the homebrewed pattern matching to construct the results. We’ll take a closer look in Swift.
+
 ---
 
 # **PARSE FOREST in SWIFT**
@@ -1018,6 +1020,10 @@ var parseForest: ParseTree<Alphabet> {
 }
 ```
 
+^In Swift, it’s once again much clearer:
+
+^Null parses produce their contained parse trees; we use operator overloading to represent our operations (the union for alternations, the cartesian product for concatenations, an empty list for repetitions, and mapped parse trees for reductions.
+
 ---
 
 # **OPERATIONS**
@@ -1027,6 +1033,8 @@ var parseForest: ParseTree<Alphabet> {
 3. Nullability
 4. Parse forest
 5. **Compaction**
+
+^The last piece of the puzzle is compaction.
 
 ---
 
