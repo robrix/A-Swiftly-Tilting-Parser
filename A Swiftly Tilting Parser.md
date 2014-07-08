@@ -684,9 +684,9 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 - Stronger typing → safer, better program 💪
 
-- I solve *my* problems more; incidental ones less 🙌
+- Solve *my* problems more, incidental ones less 🙌
 
-- Enables me to make mistakes faster, & with greater confidence 🎢
+- Make mistakes faster & with greater confidence 🎢
 
 ---
 
