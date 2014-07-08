@@ -926,8 +926,6 @@ var nullable: Bool {
 
 ^Both Objective-C and Swift fare well thanks to abstraction, but the Swift implementation abstracts much more completely, which avoids distractions from (and changes to!) the original code.
 
-^We can now move on to parse forests.
-
 ---
 
 # **OPERATIONS**
@@ -937,6 +935,8 @@ var nullable: Bool {
 3. Nullability
 4. **Parse forest**
 5. Compaction
+
+^We can now move on to parse forests.
 
 ---
 
