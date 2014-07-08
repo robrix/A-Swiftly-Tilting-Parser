@@ -685,6 +685,22 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 }
 ```
 
+^Frustrations with splitting the implementation of parser operations across many different classes and files led me to look for a better way. Since the definitions of these functions are algebraic—i.e. they rely on matching some pattern and replacing the matched item with the relevant results—pattern matching is a natural choice.
+
+^Unfortunately, pattern matching is not a feature of Objective-C. Therefore, I wrote my own.
+
+^Fortunately, I already had something to match patterns—parsers! So nullability in Objective-C uses parsers to match the patterns of parsers.
+
+^This is a bit disingenuous—implementing parsing _using_ parsing would be like lifting yourself up by your own bootstraps.
+
+^Instead, the various combinators implement a much less sophisticated form of _recognition_, roughly equivalent to recursive descent parsers.
+
+^The `-quote` method used here is doing quasiquoting—it returns a parser which matches the receiver.
+
+^This code represents weeks of work to try to build the language up to a level where these definitions can be expressed conveniently, clearly, and meaningfully.
+
+^Next, we’ll look at Swift.
+
 ---
 
 # **NULLABILITY in SWIFT**
