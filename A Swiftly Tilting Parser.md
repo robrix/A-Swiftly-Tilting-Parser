@@ -363,7 +363,7 @@ func derive(c: Alphabet) -> Recur {
 
 #define HMRDelay(x) ((__typeof__(x))[HMRDelayCombinator delay:^{ return (x); }])
 …
-return _compaction ?: HMRDelay([self compact]);
+HMRDelay([self derivativeWithRespectToObject:c]);
 ```
 
 ---
