@@ -71,6 +71,8 @@
 @end
 ```
 
+^Standard fare; factory methods and properties.
+
 ---
 
 # **NONTERMINAL PARSERS in OBJC**
@@ -99,6 +101,8 @@
 @property (readonly) HMRReductionBlock block;
 @end
 ```
+
+^More factory methods and properties. A bunch of monotonous lines declaring the kinds of parsers we are interested in.
 
 ---
 
