@@ -241,7 +241,7 @@ NSSet *HMRParseCollection(HMRCombinator *parser, id sequence) {
 }
 ```
 
-^This is a function taking a parser and a sequence, and returning a set containing parse trees.
+^This is a function taking a parser and a sequence, and returning the `parseForest`, a set containing the resulting parse trees.
 
 ^It doesn’t explicitly compact the parser itself; instead, this is handled in the `-derivative:` method.
 
@@ -266,7 +266,15 @@ extension Combinator {
 }
 ```
 
-^The Swift version is a method taking a sequence and returning a parse tree. It returns a parse tree instead of a set because sets are used to represent ambiguity, and it represents that explicitly within the parse tree as a Choice node.
+^The Swift version is almost 1:1 with the Objective-C one with some caveats:
+
+^It’s a method instead of a function; it does compaction here instead of in `derive()`; it’s using generics to specify the types of the input and parse tree; and the return type is different.
+
+^We returned `NSSet` in Objective-C because if the grammar is ambiguous—i.e. if there’s more than one way to successfully parse the input—then we want to return all of the alternatives.
+
+^The Swift implementation instead represents ambiguity in the `ParseTree` type itself, using `Choice` nodes.
+
+^All of this is to say that the `NSSet` and the `ParseTree` represent the same thing; the Swift version is just defined more precisely, and therefore the compiler has more information at its disposal for ensuring safety, and for optimization.
 
 ---
 
