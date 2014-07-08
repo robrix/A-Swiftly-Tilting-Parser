@@ -80,6 +80,8 @@
 
 ^The bold ones (alternation, concatenation, repetition, and reduction) are “nonterminal”—defined in terms of other parsers.
 
+^Now we’ll jump into the code for a look at the terminal parsers in Objective-C.
+
 ---
 
 # **TERMINAL PARSERS in OBJC**
