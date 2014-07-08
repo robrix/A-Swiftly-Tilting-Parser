@@ -369,7 +369,9 @@ extension Combinator {
 
 ^Repetition concatenates the derivative of its parser with itself, peeling off copies behind it.
 
-^Concatenation is more complicated. If first is nullable, the derivative of the concatenation is the derivative of first, concatenated with second, *or* the parse trees of first concatenated with the derivative of second. If first is not nullable, then the derivative of the concatenation is just the derivative of first, concatenated with second.
+^Concatenation is complicated by the fact that some parsers can be skipped.
+
+^We’ll take a closer look at this in Swift.
 
 ---
 
