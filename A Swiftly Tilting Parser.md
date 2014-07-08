@@ -522,38 +522,27 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 ```objectivec
 -(NSSet *)parseForest {
-  NSMutableDictionary *cache = [NSMutableDictionary new];
-  static NSSet *(^parseForest)(HMRCombinator *, NSMutableDictionary *) = ^NSSet *(HMRCombinator *combinator, id cache) {
-    return cache[combinator] ?: (cache[combinator] = [NSSet set], cache[combinator] = HMRMatch(combinator, @[
-      [[[HMRBind() or:HMRBind()] quote] then:^(HMRCombinator *left, HMRCombinator *right) {
-        return [parseForest(left, cache) setByAddingObjectsFromSet:parseForest(right, cache)];
-      }],
-      
-      [[[HMRBind() concat:HMRBind()] quote] then:^(HMRCombinator *first, HMRCombinator *second) {
-        NSSet *prefix = parseForest(first, cache);
-        NSSet *suffix = parseForest(second, cache);
-        return [NSSet append:REDFlattenMap(prefix, ^(id x) {
-          return REDMap(suffix, ^(id y) {
-            return HMRCons(x, y);
-          });
-        })];
-      }],
-      
-      [[[HMRBind() map:REDIdentityMapBlock] quote] then:^(HMRCombinator *combinator, HMRReductionBlock block) {
-        return [combinator isKindOfClass:[HMRNull class]]?
-          [[NSSet set] red_append:block(parseForest(combinator, cache))]
-        :  HMRDelaySet([[NSSet set] red_append:block(parseForest(combinator, cache))]);
-      }],
-      
-      [[[HMRAny() repeat] quote] then:^{
-        return [NSSet setWithObject:[HMRPair null]];
-      }],
-      [[HMRNull quote] then:^{
-        return combinator.parseForest;
-      }],
-    ]));
-  };
-  return parseForest(self, cache);
+  return cache[combinator] = HMRMatch(combinator, @[
+    [[[HMRBind() or:HMRBind()] quote] then:^(HMRCombinator *left, HMRCombinator *right) {
+      return [parseForest(left, cache) setByAddingObjectsFromSet:parseForest(right, cache)];
+    }],
+    
+    [[[HMRBind() concat:HMRBind()] quote] then:^(HMRCombinator *fst, HMRCombinator *snd) {
+      return [parseForest(fst, cache) product:parseForest(snd, cache)];
+    }],
+    
+    [[[HMRBind() map:REDIdentityMapBlock] quote]
+        then:^(HMRCombinator *c, HMRReductionBlock f) {
+      return [[NSSet set] f(parseForest(c, cache))];
+    }],
+    
+    [[[HMRAny() repeat] quote] then:^{
+      return [NSSet setWithObject:[HMRPair null]];
+    }],
+    [[HMRNull quote] then:^{
+      return combinator.parseForest;
+    }],
+  ]));
 }
 ```
 
