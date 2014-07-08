@@ -907,6 +907,7 @@ func compact() -> Combinator<Alphabet> {
       
     /// Repetitions of empty are equivalent to parsing the empty string.
     case .Repetition(.Empty): return Combinator(parsed: .Nil)
+    case let .Repetition(x): return Combinator(x)*
       
     /// Reductions of reductions compose.
     case let .Reduction(.Reduction(x, f), g): return Combinator(x --> compose(g, f))
