@@ -178,6 +178,8 @@ enum Language<Alphabet : Alphabet, Recur> {
 
 ^Even so, with this definition alone, we have an order of magnitude less boilerplate. Even better, it’s _declarative_: instead of saying _how to make parsers_, I say _what parsers are_; it’s the _compiler’s_ job to know how to construct & access them.
 
+^Now let’s look at how these parsers are used.
+
 ---
 
 # **OPERATIONS**
