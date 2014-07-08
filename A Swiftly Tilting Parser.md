@@ -300,6 +300,14 @@ extension Combinator {
 
 - Different definition for each kind of parser
 
+^Since each step of parsing uses a new parser—the derivative of the previous one with respect to the current input character—it stands to reason that the parser returned has to be ready for the character after _that_.
+
+^For example, if our grammar matched “hi” or “ha”, and our input began with “h”, the derivative couldn’t be expecting an “h”, or it couldn’t match. It would have to match “i” or “a” instead.
+
+^Further, since it returns the parse forest at the end, it stands to reason that each parser contains the input which it matched so far—otherwise it would have nothing to return.
+
+^And finally, since the kinds of parsers match in different ways, we’d expect the derivative to be defined differently for each kind of parser.
+
 ---
 
 # **TERMINAL DERIVATIVE in OBJC**
