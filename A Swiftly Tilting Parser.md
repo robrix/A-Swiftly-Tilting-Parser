@@ -498,11 +498,19 @@ func derive(c: Alphabet) -> Recur {
 HMRDelay([self derivativeWithRespectToObject:c]);
 ```
 
-^I’ve elided most of the class. I override & manually forward many of the methods myself so I can have finer-grained control over evaluation, in order to avoid accidental infinite loops when looking up method signatures if `forwardingTargetForSelector:` is skipped (as it frequently will be due to the target being another `HMRDelay` instance).
+^In Objective-C, we introduce a new kind of combinator—technically an `NSProxy` subclass—which uses a closure to delay evaluation. When it’s forced, whether explicitly or by the message forwarding mechanism, it evaluates the block and stores the result, thereby postponing recursive evaluation until it’s absolutely necessary.
+
+^Unfortunately, this slide leaves out most of the class’ methods. The complete implementation overrides & manually forwards almost all of the combinator API to allow finer-grained control over evaluation.
+
+^This was necessary in order to avoid accidental infinite loops when the target of the delay is another delay; when that happens, the runtime skips `-forwardingTargetForSelector:` and uses the full forwarding mechanism, which constructs method signatures—and since some of the overridden methods are called eagerly, it can fall into nontermination.
 
 ^In short, I can’t trust it. Coping with nontermination has been the single biggest headache with the Objective-C implementation.
 
-^I added the description method because I started explicitly logging delays so as to find more ways to aggressively remove them in order to try to avoid causing infinite loops. I was somewhat successful, but the scars are visible in the byzantine implementation that remains.
+^As a debugging aid, I added this custom `-description` method to make delays in the graph apparent. This in turn helped me find more ways to aggressively remove them in the first place in order to avoid any possibility of nontermination.
+
+^This effort had some success, but the scars are visible in the byzantine implementation that remains. Worse, orthogonal development—like work on pattern matching in Objective-C or the production of incremental results—has frequently lapsed into bouts of coping with nontermination.
+
+^Next, let’s look at how we delay evaluation in Swift.
 
 ---
 
