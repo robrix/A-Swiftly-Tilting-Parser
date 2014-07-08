@@ -233,7 +233,7 @@ enum Language<Alphabet : Alphabet, Recur> {
 # **PARSING in OBJC**
 
 ```objc
-NSSet *HMRParseCollection(HMRCombinator *parser, id<REDReducible> sequence) {
+NSSet *HMRParseCollection(HMRCombinator *parser, id sequence) {
   parser = [sequence reduce:parser combine:^(HMRCombinator *parser, id each) {
     return [parser derivative:each];
   }];
