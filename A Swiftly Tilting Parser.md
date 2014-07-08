@@ -688,6 +688,8 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 - Make mistakes faster & with greater confidence 🎢
 
+^I don’t have to come up with class prefixes.
+
 ---
 
 # **BENEFITS of OBJC vs. SWIFT**
