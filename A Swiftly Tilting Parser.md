@@ -24,6 +24,16 @@
 
 - Validity and structure are defined by the grammar, which is made of parser combinators
 
+^The derivative of parsers, defined in the listed paper, is an algorithm for recognizing & parsing context-free languages.
+
+^(“Context-free” is a mathematical notion the opposite of “context-sensitive”; for our purposes, we can think of “context-free languages” as meaning “programming languages” while “context-sensitive languages” would be “natural languages.” So the takeaway is that this algorithm will work on Ruby or C, but not Chinese or English.)
+
+^Recognizing a language means testing whether or not a given input is valid.
+
+^Parsing returns the structure of the input with respect to the language’s grammar; e.g. the tree structure of nested expressions. If it parses, it’s valid, and if it doesn’t parse, it’s invalid, so we’re only going to consider parsing from here on in.
+
+^Both parsing and recognition are defined by a grammar, which is made up of parser combinators.
+
 ---
 
 # **PARSER COMBINATORS**
