@@ -459,7 +459,7 @@ func derive(c: Alphabet) -> Recur {
 
 - Alternations, concatenations, repetitions, & reductions use closures to delay evaluation
 
-- Avoids nontermination when constructing the derivative
+- Avoid nontermination in the derivative
 
 - Necessary to even *construct* cyclic grammars!
 
