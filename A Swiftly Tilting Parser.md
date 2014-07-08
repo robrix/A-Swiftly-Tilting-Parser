@@ -283,37 +283,29 @@ extension Combinator {
 # **DERIVATIVE in SWIFT**
 
 ```swift
-func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Alphabet) -> Combinator<Alphabet> {
-  let derive: (Combinator<Alphabet>, Alphabet) -> Combinator<Alphabet> =
-    fixpoint(combinator, { HashablePair($0, $1) }) { recur, parameters in
-    let (combinator, character) = parameters
-    switch combinator.language {
-    case let .Literal(c) where c == character:
-      return Combinator(.Null(ParseTree(leaf: c)))
+func derive(c: Alphabet) -> Recur {
+  switch self.language {
+  case let .Literal(x) where x == c:
+    return Combinator(parsed: ParseTree(leaf: c))
     
-    case let .Alternation(x, y):
-      return Combinator(.Alternation(delay(recur(x, character)), delay(recur(y, character))))
-      
-    case let .Concatenation(x, y) where x.forced.nullable:
-      return recur(x, character) ++ y | Combinator(parsed: x.forced.parseForest) ++ recur(y, character)
-    case let .Concatenation(x, y):
-      return recur(x, character) ++ y
-      
-    case let .Repetition(x):
-      return recur(x, character) ++ combinator
-      
-    case let .Reduction(x, f):
-      return recur(x, character) --> f
-      
-    default:
-      return Combinator(.Empty)
-    }
+  case let .Alternation(x, y):
+    return derive(x, c) | derive(y, c)
+    
+  case let .Concatenation(x, y) where x.value.nullable:
+    return derive(x, c) ++ y
+      | Combinator(parsed: x.value.parseForest) ++ derive(y, c)
+  case let .Concatenation(x, y): return derive(x, c) ++ y
+    
+  case let .Repetition(x): return derive(x, c) ++ self
+    
+  case let .Reduction(x, f): return derive(x, c) --> f
+    
+  default: return Combinator(.Empty)
   }
-  return derive(combinator, character)
 }
 ```
 
-^Because languages in Swift are an enum, 
+^Because languages in Swift are an enum, we can just pattern match against them. Every operation on different kinds of parsers is pattern matching in Swift.
 
 ---
 
