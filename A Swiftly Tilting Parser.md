@@ -613,18 +613,9 @@ func derive(c: Alphabet) -> Recur {
       return Combinator(parsed: ParseTree(leaf: c))
       
     case let .Alternation(x, y):
-      return recur(x, c) | recur(y, c)
-      
-    case let .Concatenation(x, y) where x.value.nullable:
-      return recur(x, c) ++ y
-        | Combinator(parsed: x.value.parseForest) ++ recur(y, c)
-    case let .Concatenation(x, y): return recur(x, c) ++ y
-      
-    case let .Repetition(x): return recur(x, c) ++ combinator
-      
-    case let .Reduction(x, f): return recur(x, c) --> f
-      
-    default: return Combinator(.Empty)
+      return recur(x, c) | recur(y, c) 
+
+      …
     }
   }
   return derive(self, c)
