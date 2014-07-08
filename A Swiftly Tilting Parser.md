@@ -386,14 +386,15 @@ func derive(c: Alphabet) -> Recur {
   case let .Alternation(x, y):
     return derive(x, c) | derive(y, c)
     
-  case let .Concatenation(x, y) where x.value.nullable:
-    return derive(x, c) ++ y
-      | Combinator(parsed: x.value.parseForest) ++ derive(y, c)
-  case let .Concatenation(x, y): return derive(x, c) ++ y
+  case let .Reduction(x, f): return derive(x, c) --> f
     
   case let .Repetition(x): return derive(x, c) ++ self
     
-  case let .Reduction(x, f): return derive(x, c) --> f
+  case let .Concatenation(x, y) where x.value.nullable:
+    return
+      derive(x, c) ++ y
+    | Combinator(parsed: x.value.parseForest) ++ derive(y, c)
+  case let .Concatenation(x, y): return derive(x, c) ++ y
     
   default: return Combinator(.Empty)
   }
