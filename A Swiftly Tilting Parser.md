@@ -335,6 +335,8 @@ extension Combinator {
 
 ^The derivative of terminal parsers is straightforward. Literals derive to a null parser containing the input when they match, and to empty otherwise. Null and empty both derive to empty.
 
+^Next we’ll look at the derivative of nonterminal parsers.
+
 ---
 
 # **NONTERMINAL DERIVATIVE in OBJC**
