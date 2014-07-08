@@ -409,7 +409,7 @@ HMRDelay([self derivativeWithRespectToObject:c]);
 
 ---
 
-# **MEMOIZATION** 📎
+# **MEMOIZATION 📎**
 
 - The first time you call a memoized function with a set of arguments, it stores the results
 
@@ -421,7 +421,7 @@ HMRDelay([self derivativeWithRespectToObject:c]);
 
 ---
 
-# **MEMOIZATION in OBJC**
+# **MEMOIZATION 📎 in OBJC**
 
 ```objectivec
 #define HMRMemoize(x, start, body) ((x) ?: ((x = (start)), (x = (body))))
