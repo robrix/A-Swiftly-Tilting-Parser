@@ -577,7 +577,7 @@ var nullable: Bool {
 
 ---
 
-# **FIXPOINTS in OBJC**
+# **FIXPOINTS 🔨☝️ in OBJC**
 
 ```objectivec
 bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
