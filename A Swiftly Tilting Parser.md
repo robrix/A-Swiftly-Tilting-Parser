@@ -139,17 +139,33 @@
 # **PARSING in OBJC**
 
 ```objc
-NSSet *HMRParseCollection(HMRCombinator *parser, id<REDReducible> reducible) {
-	parser = [reducible red_reduce:parser usingBlock:^(HMRCombinator *parser, id each) {
-		return [parser derivative:each];
-	}];
-	return parser.parseForest;
+NSSet *HMRParseCollection(HMRCombinator *parser, id<REDReducible> sequence) {
+  parser = [sequence reduce:parser combine:^(HMRCombinator *parser, id each) {
+    return [parser derivative:each];
+  }];
+  return parser.parseForest;
 }
 ```
 
 ^The ObjC version is a function taking a parser and a sequence, and returning a set containing parse trees.
 It doesn’t explicitly compact the grammar like we discussed before; instead, this is done in the `-derivative:` method.
 
+---
+
+# **PARSING in SWIFT**
+
+```swift
+extension Combinator {
+  func parse<S : Sequence where S.GeneratorType.Element == Alphabet>
+    (sequence: S) -> ParseTree<Alphabet> {
+    return reduce(sequence, self) { parser, term in
+      derive(parser, term).compact()
+    }.parseForest
+  }
+}
+```
+
+^The Swift version is a method taking a sequence and returning a parse tree. It returns a parse tree instead of a set because sets are used to represent ambiguity, and it represents that explicitly within the parse tree as a Choice node.
 
 ---
 
