@@ -52,6 +52,10 @@
 
 - Empty: never ever match
 
+^Literal, null, and empty are “terminal”—they don’t involve other parsers.
+
+^Alternation, concatenation, repetition, and reduction are “nonterminals”—defined in terms of other parsers.
+
 ---
 
 # **TERMINAL PARSERS in OBJC**
