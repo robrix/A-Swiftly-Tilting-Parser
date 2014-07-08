@@ -76,9 +76,9 @@
 
 - _Empty_: never ever match
 
-^Literal, null, and empty are “terminal”—they don’t involve other parsers.
+^The italicized ones (literal, null, and empty) are “terminal”—they don’t involve other parsers.
 
-^Alternation, concatenation, repetition, and reduction are “nonterminals”—defined in terms of other parsers.
+^The bold ones (alternation, concatenation, repetition, and reduction) are “nonterminal”—defined in terms of other parsers.
 
 ---
 
