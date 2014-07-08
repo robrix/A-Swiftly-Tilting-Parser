@@ -1266,6 +1266,10 @@ func compact() -> Combinator<Alphabet> {
 
 - Pattern matching cyclic grammars is tricky
 
+^Both languages have some challenges in common.
+
+^There are also challenges unique to Objective-C.
+
 ---
 
 # **CHALLENGES UNIQUE to OBJC**
@@ -1282,6 +1286,10 @@ func compact() -> Combinator<Alphabet> {
 
 - Nontermination is much harder to solve, e.g. `-isEqual:` for equal cyclic grammars
 
+^The challenges of Objective-C centre on its history/cruft; dynamic typing; and object orientation.
+
+^Swift has its own challenges, too.
+
 ---
 
 # **CHALLENGES UNIQUE to SWIFT**
@@ -1297,6 +1305,10 @@ func compact() -> Combinator<Alphabet> {
 - Some language design/prioritization choices need workarounds
 
 	- Making it up as I go ✈️💺👖
+
+^On the other hand, Swift’s challenges centre around it being new and under development. Unlike Objective-C’s challenges, these are likely to recede in magnitude and some will disappear altogether.
+
+^Likewise, Swift has some unique benefits.
 
 ---
 
@@ -1316,7 +1328,9 @@ func compact() -> Combinator<Alphabet> {
 
 - Make mistakes faster & with greater confidence 🎢
 
-^I don’t have to come up with class prefixes.
+^Plus, I don’t have to come up with class prefixes.
+
+^Objective-C has some benefits too.
 
 ---
 
@@ -1329,6 +1343,10 @@ func compact() -> Combinator<Alphabet> {
 - Familiarity
 
 - Unlikely to break my code on the day of the talk 😆
+
+^Objective-C’s benefits are few, and likely to be less important over time.
+
+^There are also some ways in which Objective-C is initially less frustrating, but which may be more subtle than they first appear.
 
 ---
 
@@ -1346,6 +1364,14 @@ func compact() -> Combinator<Alphabet> {
 
 	- *Had* to use macros & dynamic proxies in ObjC 😞
 
+^Typing things as `id` means it’s trivial to have crashes.
+
+^`ParseTree` in Swift is much more precise as to the assumptions of your code—if it compiles, it’s likely to work, too.
+
+^The lack of metaprogramming techniques in Swift is regrettable, but it’s important not to conflate these with _dynamic_ techniques. Type systems elevate the programmer’s knowledge about the program into a format the compiler can understand, and nothing about that would preclude constructing types or functions at compile-time based on the definitions of other types and functions.
+
+^There are also some ways in which Swift might appear superior to Objective-C, but which are questionable.
+
 ---
 
 # **SUBTLETIES: SWIFT > OBJC…?**
@@ -1354,13 +1380,21 @@ func compact() -> Combinator<Alphabet> {
 
 	- Wasn’t sure this approach would work 1w ago 😰
 
-	- If not, same solution as ObjC, with beta tools 😡
+	- If not, same solution as ObjC, with beta tools! 😡
 
 - `@auto_closure` & operators are ✨ for grammars
 
 	- Potentially masks refcycles
 
 	- Hard to break cycles automatically *or* manually
+
+^Using `enum` & `switch`/`case` is an elegant and expressive technique, but the immaturity of the language and the necessity of figuring this out as I went made me uncertain that the approach would actually be workable as recently as a week ago.
+
+^If it hadn’t been, I’d have had to implement the same solution as in Objective-C—right down to pattern matching. It would have been improved in small details, but the large ones would have been terrible.
+
+^There are other situations where what appears to be an elegant and ideal solution is not _quite_ supported by the language; that’s a dangerous thing to rely upon.
+
+^Similarly, the convenience afforded by `@auto_closure` when constructing parsers also masks some danger: refcycles are a part of this structure, and it’s hard to break them, whether automatically or manually. 
 
 ---
 
