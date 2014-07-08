@@ -699,8 +699,6 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 ^This code represents weeks of work to try to build the language up to a level where these definitions can be expressed conveniently, clearly, and meaningfully.
 
-^Next, we’ll look at Swift.
-
 ---
 
 # **NULLABILITY in SWIFT**
