@@ -859,7 +859,7 @@ func compact() -> Combinator<Alphabet> {
 
 # **COMPACTION in the FUTURE 🚀**
 
-- Generally must compact after derivative, or else cyclic → 🔄
+- Generally must compact after derivative, or else 🔄
 
 	- Can we avoid complex parsers altogether in some cases?
 
