@@ -439,13 +439,11 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 # **NULLABILITY and NONTERMINATION 🔄**
 
-- Nullability walks the grammar *eagerly*, defeating laziness 😴
+- Nullability walks the grammar eagerly, defeating laziness 😴
 
-- Nullability computes pass/fail, not a structure; e.g.:
+- Nullability computes pass/fail, not a structure, defeating memoization 📎
 
-		δ(𝐿) = δ(𝐿) α | ϵ
-
-	Can’t finish & memoize before recurring, thus defeating memoization 📎
+- Thus: 🔄
 
 ---
 
