@@ -327,12 +327,7 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 # **LAZINESS in OBJC**
 
 ```objectivec
-@implementation HMRDelayCombinator {
-	HMRCombinator *(^_block)(void);
-	HMRCombinator *_forced;
-}
-
--(instancetype)initWithBlock:(HMRCombinator *(^)(void))block {…}
+@implementation HMRDelayCombinator
 
 -(HMRCombinator *)forced {
 	HMRCombinator *(^block)(void) = _block;
@@ -348,6 +343,12 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 -(id)forwardingTargetForSelector:(SEL)selector {
 	return self.forced;
 }
+
+@end
+
+#define HMRDelay(x) ((__typeof__(x))[HMRDelayCombinator delay:^{ return (x); }])
+…
+return _compaction ?: HMRDelay([self compact]);
 ```
 
 ---
