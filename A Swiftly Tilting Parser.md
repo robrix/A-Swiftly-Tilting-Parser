@@ -447,7 +447,7 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 ---
 
-# PROTECTING your PARSERS from NONTERMINATION 😎
+# **PROTECTING your PARSERS from NONTERMINATION 😎**
 
 1. Laziness 😴
 2. Memoization 📎
