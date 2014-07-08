@@ -622,7 +622,17 @@ func derive(c: Alphabet) -> Recur {
 }
 ```
 
-^cf WWDC Session 404 Advanced Swift
+^The definition of the derivative in Swift which we saw before omitted memoization. Now we see that the derivative is actually built using this memoizing function, which uses the closure passed to it to build a function which automatically memoizes its inputs.
+
+^Instead of directly recursing through `derive`, we call `recur`—a parameter provided to our closure by the `memoize` function which ensures that our recursion is memoized as well.
+
+^All of the implementation details present in the Objective-C implementation are therefore abstracted away, and we can focus on the details of our problem.
+
+^This `memoize` function is a beautiful example of Swift’s expressiveness. It was given in WWDC2014 Session 404 Advanced Swift during Dave Abraham’s portion of the session.
+
+^While an equivalent function can be written in Objective-C, the lack of type inferencing and generics makes it woefully inadequate; by contrast, this definition is remarkably clear.
+
+^With laziness and memoization in place, we can continue on to the next operation in the derivative: nullability.
 
 ---
 
