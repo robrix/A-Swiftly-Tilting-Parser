@@ -593,7 +593,31 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 ---
 
-# *compaction in Objective-C and Swift*
+# **COMPACTION in OBJC**
+
+```objectivec
+-(HMRCombinator *)compact {
+  HMRCombinator *left = self.left.compacted, *right = self.right.compacted;
+  if ([left isEqual:[HMRCombinator empty]]) return right;
+  else if ([right isEqual:[HMRCombinator empty]]) return left;
+
+  else if ([left isKindOfClass:[HMRNull class]]
+    && [right isKindOfClass:[HMRNull class]]) {
+    NSSet *all = [left.parseForest setByAddingObjectsFromSet:right.parseForest];
+    return [HMRCombinator capture:all];
+  }
+  else if ([left isKindOfClass:[HMRConcatenation class]]
+    && [left.first isKindOfClass:[HMRNull class]]
+    && [right isKindOfClass:[HMRConcatenation class]]
+    && [left.first isEqual:right.first]) {
+    HMRCombinator *innerLeft = left.second;
+    HMRCombinator *innerRight = right.second;
+    alternation = [innerLeft or:innerRight];
+    return [left.first concat:[innerLeft or:innerRight]];
+  }
+  else return [left or:right];
+}
+```
 
 ---
 
