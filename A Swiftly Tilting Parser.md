@@ -654,6 +654,12 @@ func derive(c: Alphabet) -> Recur {
 
 - Equivalent: “Can it be skipped?”
 
+^As touched on briefly in the derivative of concatenation, a parser is nullable if it can be skipped. More formally, a parser is nullable if it can match the empty string.
+
+^This translates to our freedom to skip it in the derivative of concatenations, as well as whether it can match when we reach the end of the input.
+
+^Simple enough; now let’s look at the Objective-C code.
+
 ---
 
 # **NULLABILITY in OBJC**
