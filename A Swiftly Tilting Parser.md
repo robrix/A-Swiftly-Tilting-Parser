@@ -569,6 +569,16 @@ func | <Alphabet : Alphabet>
 
 - Allows the derivative to “tie the knot” when building a cyclic grammar *from* a cyclic grammar
 
+^Memoization is a familiar concept: it’s approximately the same thing as caching.
+
+^When calling a memoized function, it looks for a cached result, and returns it if any is found. Otherwise, it computes, caches the result, and then returns it.
+
+^Some functions can be cached in an instance variable; for example, a computed property doesn’t have any arguments (other than the implicit `self`), so an instance variable is suitable.
+
+^On the other hand, the derivative has the input character parameter. Therefore, it needs a map from input character to derivative. A dictionary works just fine.
+
+^Let’s look at memoization in Objective-C.
+
 ---
 
 # **MEMOIZATION 📎 in OBJC**
