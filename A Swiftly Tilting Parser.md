@@ -627,6 +627,6 @@ func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Al
 
 # **_THANK YOU!_ 🙇**
 
-### David Darais, Matt Might, Kelly Rix,<br/>David Smith, Daniel Spiewak,<br/>the Swift team, & especially you 💟
+### David Darais, Matt Might, Kelly Rix, David Smith,<br/>Daniel Spiewak, the Swift team, @DecksetApp,<br/>& especially you 💟
 
 ### https://github.com/robrix/A-Swiftly-Tilting-Parser<br/> rob.rix@github.com ❧ @rob_rix
