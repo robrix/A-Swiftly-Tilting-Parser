@@ -331,9 +331,9 @@ extension Combinator {
 }
 ```
 
-^Each kind of parser is a different class in ObjC, so these are all separate methods from separate classes—`HMRLiteral`, `HMRNull`, `HMREmpty`, and so on.
+^Since each kind of parser is a different class in ObjC, these are all separate methods in those classes.
 
-^The derivative of terminals—parsers which aren’t built from other parsers—is straightforward. Literals derive to a null parse containing the input they match it, or else empty. Null and empty both derive to empty.
+^The derivative of terminal parsers is straightforward. Literals derive to a null parser containing the input when they match, and to empty otherwise. Null and empty both derive to empty.
 
 ---
 
