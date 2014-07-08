@@ -804,6 +804,7 @@ var parseForest: ParseTree<Alphabet> {
 # **COMPACTION in OBJC**
 
 ```objectivec
+// HMRAlternation
 -(HMRCombinator *)compact {
   HMRCombinator *left = self.left.compacted, *right = self.right.compacted;
   if ([left isEqual:[HMRCombinator empty]]) return right;
@@ -824,6 +825,67 @@ var parseForest: ParseTree<Alphabet> {
     return [left.first concat:[innerLeft or:innerRight]];
   }
   else return [left or:right];
+}
+```
+
+---
+
+# **COMPACTION in OBJC**
+
+```objectivec
+// HMRConcatenation
+-(HMRCombinator *)compact {
+  HMRCombinator *fst = self.first.compaction, *snd = self.second.compaction;
+  if ([fst isEqual:[HMRCombinator empty]] || [snd isEqual:[HMRCombinator empty]])
+    return [HMRCombinator empty];
+  else if ([fst isKindOfClass:[HMRNull class]] && [snd isKindOfClass:[HMRNull class]])
+    return [HMRCombinator capture:[fst.parseForest product:snd.parseForest]];
+  else if ([fst isKindOfClass:[HMRNull class]]) {
+    NSSet *parseForest = fst.parseForest;
+    if (parseForest.count == 0) return snd;
+    else return [snd map:^(id each) {
+        return HMRCons(parseForest.anyObject, each);
+      }];
+  }
+  else if ([snd isKindOfClass:[HMRNull class]]) {
+    NSSet *parseForest = snd.parseForest;
+    if (parseForest.count == 0) concatenation = fst;
+    else return [fst map:^(id each) {
+        return HMRCons(each, parseForest.anyObject);
+      }];
+  }
+  else return [fst concat:snd];
+}
+```
+
+---
+
+# **COMPACTION in OBJC**
+
+```objectivec
+-(HMRCombinator *)compact {
+  HMRCombinator *combinator = self.combinator.compaction;
+  return [combinator isEqual:[HMRCombinator empty]]?
+    [HMRCombinator captureTree:[HMRPair null]]
+  : (combinator == self.combinator? self : [combinator repeat]);
+}
+```
+
+---
+
+# **COMPACTION in OBJC**
+
+```objectivec
+// HMRReduction
+-(HMRCombinator *)compact {
+  HMRCombinator *combinator = self.combinator.compaction;
+  if ([combinator isEqual:[HMRCombinator empty]])
+    return [HMRCombinator empty];
+  else if ([combinator isKindOfClass:[HMRReduction class]])
+    return HMRComposeReduction(combinator, self.block);
+  else if ([combinator isKindOfClass:[HMRNull class]])
+    return [HMRCombinator capture:[self map:combinator.parseForest]];
+  else return [combinator mapSet:self.block];
 }
 ```
 
