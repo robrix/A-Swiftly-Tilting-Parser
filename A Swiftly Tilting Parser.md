@@ -144,7 +144,9 @@
 
 ^Even grouped together like this, it makes for a lot of boilerplate, and we haven’t even seen the implementations: every one of those factory methods has an implementation and a corresponding `-init` method.
 
-^Let’s compare this with how parsers are defined in Swift.
+^Everything here would be trivial to translate to Swift 1:1. However, it wouldn’t be very interesting to just review a mechanical translation of the same solution with Swift syntax.
+
+^Fortunately, it turns out that Swift has some interesting tricks up its sleeve.
 
 ---
 
