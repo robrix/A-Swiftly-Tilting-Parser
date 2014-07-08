@@ -449,6 +449,10 @@ func derive(c: Alphabet) -> Recur {
 
 1. **Laziness 😴**
 
+^Now, we deal with it.
+
+^First up, we employ laziness.
+
 ---
 
 # **LAZINESS 😴**
