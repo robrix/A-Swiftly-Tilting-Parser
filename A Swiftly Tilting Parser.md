@@ -1058,6 +1058,10 @@ var parseForest: ParseTree<Alphabet> {
 
 - Worst case: O(2²*ⁿ**G*²) : *G* = grammar size, *n* = input length 💥
 
+^The derivative of concatenation doubles the size of the grammar. Atrocious complexity results even for simple, unambiguous grammars.
+
+^This is where compaction comes in.
+
 ---
 
 # **COMPACTION**
