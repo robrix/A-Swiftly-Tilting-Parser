@@ -742,6 +742,10 @@ var nullable: Bool {
 
 - Thus: 🔄
 
+^Nullability’s definition is eager, evaluating the delays immediately. It computes a pass/fail rather than a structure.
+
+^Thus, we need another strategy to deal with the nontermination.
+
 ---
 
 # **PROTECTING your PARSERS from NONTERMINATION 😎**
