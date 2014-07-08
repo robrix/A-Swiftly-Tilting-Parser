@@ -534,6 +534,12 @@ HMRDelay([self derivativeWithRespectToObject:c]);
 		return value
 	}
 }
+// Construct an alternation.
+func | <Alphabet : Alphabet>
+  (left: @auto_closure Void -> Combinator<Alphabet>,
+  right: @auto_closure Void -> Combinator<Alphabet>) -> Combinator<Alphabet> {
+	return Combinator(.Alternation(Delay(left), Delay(right)))
+}
 ```
 
 ^By contrast, this is an extremely trustworthy little class. It’s less automatic, but also less magical, while still allowing conveniences such as `@auto_closure` to wrap the construction of new delays.
