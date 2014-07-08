@@ -952,6 +952,16 @@ var nullable: Bool {
 
 	- This means there’s ambiguity in the grammar 😨
 
+^The parse forest operation (a computed property in both languages) constructs and returns any matched parse trees from the parsers.
+
+^This is how it returns the results squirrelled away in those null parses, and the specific parsers’ rules for this operation determine the structure of the resulting tree—which elements are nested within which other elements, etc.
+
+^At the same time, it’s also how reductions are applied, turning parse trees of input elements into trees of your model objects. For example, you could use reductions to map parse trees into `NSTreeNode` instances, or even views; generally tree structures will be most applicable, but constant folding—turning constant expressions like `1 + 1` which can be evaluated at compile-time—could technically occur at this point.
+
+^Importantly, if both of an alternation’s parsers match the input, both are returned in the parse forest, representing the ambiguity. Ambiguity can be quite a problem for performance, so this is important to take note of.
+
+^Let’s look at the code.
+
 ---
 
 # **PARSE FOREST in OBJC**
