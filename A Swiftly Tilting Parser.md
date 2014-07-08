@@ -4,6 +4,12 @@
 
 ### https://github.com/robrix/A-Swiftly-Tilting-Parser <br/> rob.rix@github.com 🚀 @rob_rix
 
+^This URL and my contact information will be repeated at the end.
+
+^We’re going to be talking about the Derivative of Parsers. There’s going to be a _small_ amount of theory, and then we’ll explain the algorithm by contrasting its implementation in Objective-C and Swift.
+
+^Don’t worry if you miss some of the theory: the code will explain, and there won’t be a test.
+
 ---
 
 # **THE DERIVATIVE of PARSERS**
