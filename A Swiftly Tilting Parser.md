@@ -792,6 +792,18 @@ var nullable: Bool {
 
 - Iterate `δⁿ(𝐿)` from `δ⁰(𝐿) = false` until `δⁿ(𝐿) = δⁿ⁻¹(𝐿)`  (Kleene fixpoint theorem)
 
+^Fixed points are values for which a function returns its argument. For example, the function which squares its argument is fixed at 0 and 1, and the identity function, every point is fixed.
+
+^The paper defines a `δ` function—the nullability combinator. If a parser is nullable, the nullability combinator returns it (and thus that parser is a fixed point). Otherwise, it returns the empty parser.
+
+^That means that it’s still pass/fail—boolean, in effect. But since the definition of `δ` is recursive, it’s immediately nonsensical—we can’t compute `δ` since its definition requires itself.
+
+^Instead, we interpret the use of `δ` as the least fixed point of the nullability equations. Starting with an initial approximation (false, in our case), we compute successive values until it stabilizes.
+
+^This is Kleene’s fixpoint theorem. In practice, it allows us to terminate despite the eager recursive implementation of nullability.
+
+^We’ll contrast nullability without fixpoints and nullability with them to clarify. First, Objective-C.
+
 ---
 
 # **~~FIXPOINTS 🔨☝️~~ in OBJC**
