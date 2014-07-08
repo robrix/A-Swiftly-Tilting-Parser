@@ -226,7 +226,7 @@ enum Language<Alphabet : Alphabet, Recur> {
 
 ^Finally, it returns the last parser’s parse forest.
 
-^Let’s look at it in Objective-C.
+^Let’s take a quick glance at it in Objective-C.
 
 ---
 
@@ -241,8 +241,15 @@ NSSet *HMRParseCollection(HMRCombinator *parser, id sequence) {
 }
 ```
 
-^The ObjC version is a function taking a parser and a sequence, and returning a set containing parse trees.
-It doesn’t explicitly compact the grammar like we discussed before; instead, this is done in the `-derivative:` method.
+^This is a function taking a parser and a sequence, and returning a set containing parse trees.
+
+^It doesn’t explicitly compact the parser itself; instead, this is handled in the `-derivative:` method.
+
+^(Why a function? This is some historical dandruff of the implementation. Initially combinators were a protocol, rather than a class. Since you can’t have implementations of methods in Objective-C, expressing parsing as a method would have required me to implement at least seven `-parse:` methods, which would probably all call out to this function anyway.)
+
+^It uses this `reduce:combine:` method (which is the same as the `reduce` function in Swift, or a left fold) to iterate over the input and return the (compacted) derivative, which is then passed to the next iteration of the block.
+
+^And in Swift?
 
 ---
 
