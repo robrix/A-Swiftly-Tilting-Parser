@@ -594,9 +594,11 @@ func | <Alphabet : Alphabet>
 }
 ```
 
-^In Objective-C, I memoize into an instance variable using a macro. (There’s also another mechanism which we’ll see later.)
+^In Objective-C, we memoize into an instance variable (or in this case a dictionary stored in an instance variable) using a macro. There’s also another mechanism, which we’ll see later.
 
-^All the nonterminal parsers inherit from `HMRNonterminal`, which memoizes their implementations of the derivative; this avoids me having to do it again and again in every subclass.
+^All of the nonterminal parsers inherit from `HMRNonterminal`, which memoizes their derivatives; this avoids having to memoize in each and every parser subclass.
+
+^Next, let’s look at Swift.
 
 ---
 
