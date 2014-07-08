@@ -518,6 +518,33 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
 
 ---
 
+# **NULLABILITY in SWIFT**
+
+```swift
+var nullable: Bool {
+  let nullable: Combinator<Alphabet> -> Bool = memoize { recur, combinator in
+    switch combinator.language {
+    case .Null: return true
+      
+    case let .Alternation(left, right):
+      return recur(left) || recur(right)
+      
+    case let .Concatenation(first, second):
+      return recur(first) && recur(second)
+      
+    case .Repetition: return true
+      
+    case let .Reduction(c, _): return recur(c)
+      
+    default: return false
+    }
+  }
+  return nullable(self)
+}
+```
+
+---
+
 # **NULLABILITY and NONTERMINATION 🔄**
 
 - Nullability walks the grammar eagerly, defeating laziness 😴
