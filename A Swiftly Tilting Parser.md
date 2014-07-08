@@ -366,6 +366,8 @@ func derive(c: Alphabet) -> Recur {
 HMRDelay([self derivativeWithRespectToObject:c]);
 ```
 
+^I’ve elided most of the class. I override & manually forward many of the methods myself so I can have finer-grained control over evaluation, in order to avoid accidental infinite loops when looking up method signatures if `forwardingTargetForSelector:` is skipped (as it frequently will be due to the target being another `HMRDelay` instance).
+
 ---
 
 # **PROTECTING your PARSERS from NONTERMINATION 😎**
