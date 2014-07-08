@@ -893,6 +893,8 @@ var nullable: Bool {
 }
 ```
 
+^This is nullability without fixpoints.
+
 ---
 
 # **FIXPOINTS 🔨☝️ in SWIFT**
@@ -919,6 +921,12 @@ var nullable: Bool {
   return nullable(self)
 }
 ```
+
+^And this is nullability with fixpoints. All that changed is that instead of using the `memoize` function, we now use the `fixpoint` function and pass it an initial value of `false`.
+
+^Both Objective-C and Swift fare well thanks to abstraction, but the Swift implementation abstracts much more completely, which avoids distractions from (and changes to!) the original code.
+
+^We can now move on to parse forests.
 
 ---
 
