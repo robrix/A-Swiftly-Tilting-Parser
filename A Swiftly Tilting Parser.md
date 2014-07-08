@@ -286,6 +286,8 @@ extension Combinator {
 4. Parse forest
 5. Compaction
 
+^Next, let’s look at the derivative.
+
 ---
 
 # **DERIVATIVE**
