@@ -730,6 +730,8 @@ var nullable: Bool {
 
 ^Null parsers are nullable; alternations are nullable if either of their parsers is; concatenations are nullable if both of their parsers are; repetitions are nullable; reductions are nullable if their parsers are; all other parsers are not.
 
+^Unfortunately, both the Objective-C and Swift implementations run into problems again—nontermination is back.
+
 ---
 
 # **NULLABILITY and NONTERMINATION 🔄**
