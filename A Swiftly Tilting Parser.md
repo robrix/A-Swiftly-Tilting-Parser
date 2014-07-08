@@ -202,6 +202,8 @@ enum Language<Alphabet : Alphabet, Recur> {
 4. Parse forest
 5. Compaction
 
+^First, we’ll look at parsing itself—at a very high level, how to go from input to results.
+
 ---
 
 # **PARSING**
