@@ -253,22 +253,17 @@ extension Combinator {
 -(HMRCombinator *)deriveWithRespectToObject:(id)object {
   return [[self.left derivative:object] or:[self.right derivative:object]];
 }
-
 // Concatenation
 -(HMRCombinator *)deriveWithRespectToObject:(id)object {
-  HMRCombinator *first = self.first;
-  HMRCombinator *second = self.second;
-  HMRCombinator *derivativeAfterFirst = [[first derivative:object] concat:second];
   return HMRCombinatorIsNullable(first)?
-    [derivativeAfterFirst or:[[HMRCombinator capture:first.parseForest] concat:[second derivative:object]]]
-  : derivativeAfterFirst;
+    [[[first derivative:object] concat:second]
+      or:[[HMRCombinator capture:first.parseForest] concat:[second derivative:object]]]
+  : [[first derivative:object] concat:second];
 }
-
 // Repetition
 -(HMRCombinator *)deriveWithRespectToObject:(id)object {
   return [[self.combinator derivative:object] concat:self];
 }
-
 // Reduction
 -(HMRReduction *)deriveWithRespectToObject:(id)object {
   return [[self.combinator derivative:object] mapSet:self.block];
