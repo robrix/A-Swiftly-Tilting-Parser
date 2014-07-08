@@ -190,6 +190,8 @@ enum Language<Alphabet : Alphabet, Recur> {
 4. Parse forest
 5. Compaction
 
+^These are the basic, high-level operations of the algorithm. You can define other ones—like pretty-printing—but these are the necessary and sufficient ones to parse.
+
 ---
 
 # **OPERATIONS**
