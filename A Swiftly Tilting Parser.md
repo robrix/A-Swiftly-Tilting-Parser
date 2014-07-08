@@ -857,7 +857,7 @@ func compact() -> Combinator<Alphabet> {
 
 ---
 
-# **COMPACTION in the FUTURE**
+# **COMPACTION in the FUTURE 🚀**
 
 - Generally must compact after derivative, or else cyclic → 🔄
 
