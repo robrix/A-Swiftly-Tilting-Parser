@@ -1113,6 +1113,10 @@ var parseForest: ParseTree<Alphabet> {
 }
 ```
 
+^The Objective-C implementation of compaction is still spread across each of the class files. We won’t look closely at what it’s actually compacting, or how; as you can plainly see, it’s arduous.
+
+^This is compaction for alternation.
+
 ---
 
 # **COMPACTION in OBJC**
@@ -1143,6 +1147,8 @@ var parseForest: ParseTree<Alphabet> {
 }
 ```
 
+^And concatenation.
+
 ---
 
 # **COMPACTION in OBJC**
@@ -1156,6 +1162,8 @@ var parseForest: ParseTree<Alphabet> {
 }
 ```
 
+^Repetition, mercifully brief—but still quite difficult to read.
+
 ---
 
 # **COMPACTION in OBJC**
@@ -1166,13 +1174,20 @@ var parseForest: ParseTree<Alphabet> {
   HMRCombinator *combinator = self.combinator.compaction;
   if ([combinator isEqual:[HMRCombinator empty]])
     return [HMRCombinator empty];
+
   else if ([combinator isKindOfClass:[HMRReduction class]])
     return HMRComposeReduction(combinator, self.block);
+
   else if ([combinator isKindOfClass:[HMRNull class]])
     return [HMRCombinator capture:[self map:combinator.parseForest]];
+
   else return [combinator mapSet:self.block];
 }
 ```
+
+^And reductions.
+
+^How does Swift fare?
 
 ---
 
