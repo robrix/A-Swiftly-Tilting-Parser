@@ -577,6 +577,31 @@ var nullable: Bool {
 
 ---
 
+# **~~FIXPOINTS 🔨☝️~~ in OBJC**
+
+```objectivec
+bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
+  return [HMRMemoize(cache[combinator], @NO, HMRMatch(combinator, @[
+    [[[HMRBind() concat:HMRBind()] quote] then:^(HMRCombinator *fst, HMRCombinator *snd) {
+      return @(recur(fst) && recur(snd));
+    }],
+    
+    [[[HMRBind() or:HMRBind()] quote] then:^(HMRCombinator *left, HMRCombinator *right) {
+      return @(recur(left) || recur(right));
+    }],
+    
+    [[[HMRBind() map:REDIdentityMapBlock] quote] then:^(HMRCombinator *combinator) {
+      return @(recur(combinator));
+    }],
+    
+    [[[HMRAny() repeat] quote] then:^{ return @YES; }],
+    [[HMRNull quote] then:^{ return @YES; }],
+  ])) boolValue];
+}
+```
+
+---
+
 # **FIXPOINTS 🔨☝️ in OBJC**
 
 ```objectivec
@@ -603,6 +628,33 @@ bool HMRCombinatorIsNullable(HMRCombinator *combinator) {
   };
   recur = isNullable;
   return isNullable(combinator);
+}
+```
+
+---
+
+# **~~FIXPOINTS 🔨☝️~~ in SWIFT**
+
+```swift
+var nullable: Bool {
+  let nullable: Combinator<Alphabet> -> Bool = memoize { recur, combinator in
+    switch combinator.language {
+    case .Null: return true
+      
+    case let .Alternation(left, right):
+      return recur(left) || recur(right)
+      
+    case let .Concatenation(first, second):
+      return recur(first) && recur(second)
+      
+    case .Repetition: return true
+      
+    case let .Reduction(c, _): return recur(c)
+      
+    default: return false
+    }
+  }
+  return nullable(self)
 }
 ```
 
