@@ -752,6 +752,14 @@ var nullable: Bool {
 
 1. Laziness 😴
 2. Memoization 📎
+3. 
+
+---
+
+# **PROTECTING your PARSERS from NONTERMINATION 😎**
+
+1. Laziness 😴
+2. Memoization 📎
 3. *Math* ✖️➗
 
 ---
