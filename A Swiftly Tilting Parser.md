@@ -40,6 +40,54 @@
 
 ---
 
+# **TERMINAL PARSERS in OBJC**
+
+```objectivec
+@interface HMRLiteral : HMRPredicateCombinator
++(instancetype)literal:(id)object;
+@property (readonly) id<NSObject, NSCopying> object;
+@end
+
+@interface HMREmpty : HMRTerminal
+@end
+
+@interface HMRNull : HMRTerminal
++(instancetype)captureForest:(NSSet *)forest;
+@property (readonly) NSSet *parseForest;
+@end
+```
+
+---
+
+# **NONTERMINAL PARSERS in OBJC**
+
+```objectivec
+@interface HMRAlternation : HMRNonterminal
++(instancetype)alternateLeft:(HMRCombinator *)left right:(HMRCombinator *)right;
+@property (readonly) HMRCombinator *left;
+@property (readonly) HMRCombinator *right;
+@end
+
+@interface HMRConcatenation : HMRNonterminal
++(instancetype)concatenateFirst:(HMRCombinator *)first second:(HMRCombinator *)second;
+@property (readonly) HMRCombinator *first;
+@property (readonly) HMRCombinator *second;
+@end
+
+@interface HMRRepetition : HMRNonterminal
++(instancetype)repeat:(HMRCombinator *)combinator;
+@property (readonly) HMRCombinator *combinator;
+@end
+
+@interface HMRReduction : HMRNonterminal
++(instancetype)reduce:(HMRCombinator *)combinator usingBlock:(HMRReductionBlock)block;
+@property (readonly) HMRCombinator *combinator;
+@property (readonly) HMRReductionBlock block;
+@end
+```
+
+---
+
 # **THE DERIVATIVE of PARSERS**
 
 - Might, Darais, & Spiewak’s 2011 paper *[Parsing with Derivatives—a Functional Pearl](http://matt.might.net/papers/might2011derivatives.pdf)*
