@@ -401,7 +401,21 @@ func derive(c: Alphabet) -> Recur {
 }
 ```
 
-^Because languages in Swift are an enum, we can just pattern match against them. Every operation on different kinds of parsers is pattern matching in Swift.
+^Because parsers use an `enum` in Swift, we can use `switch`/`case` to pattern match against them. (This is why we don’t need properties.) In fact, every operation on different kinds of parsers is performed with pattern matching in Swift.
+
+^The code is all in one place, so you don’t have to search and risk missing key details. You can contrast the derivatives of various parsers at a glance.
+
+^There’s that much less syntax between us and what we’re trying to express. This makes Concatenation much easier both to write and to understand.
+
+^We see that Concatenation has two cases, differing in whether its first parser is nullable. (For the moment, we can think of “is nullable” as “can be skipped.”)
+
+^If it _can’t_ be skipped—the second case—then the derivative is the derivative of first concatenated with second.
+
+^If it _can_ be skipped—the first case—the derivative is either the same as if it cannot, or it’s the concatenation of a null parse containing whatever parse trees first parsed with the derivative of second.
+
+^For example, when we parse the “h” in “ha”, it gets stored in a null parse and concatenated with the literal parser for “a”; then, when we parse the “a”, the null parse is skipped (for the purpose of matching further input), but its parse trees are retained (for the purpose of producing the correct parse forest at the end).
+
+^Unfortunately, since both the Objective-C and Swift code given here is recursive, we’re confronted with a serious problem as soon as we try to parse anything more complex than a regular expression: nontermination.
 
 ---
 
