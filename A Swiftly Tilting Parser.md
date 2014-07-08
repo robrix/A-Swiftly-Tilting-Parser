@@ -118,7 +118,7 @@
 
 ---
 
-# **RECURSION 🔄 & NONTERMINATION 💥**
+# **RECURSION 🌀 & NONTERMINATION 🔄**
 
 - Context-free languages & grammars are recursive
 
@@ -128,7 +128,7 @@
 
 - Regexps can be matched with a list, but context-free languages need a stack
 
-- Naïve implementations will infinite loop 💥
+- Naïve implementations will infinite loop 🔄
 
 ---
 
@@ -199,7 +199,7 @@
 
 ---
 
-# **NULLABILITY and NONTERMINATION 💥**
+# **NULLABILITY and NONTERMINATION 🔄**
 
 - Nullability walks the grammar *eagerly*, defeating laziness 😴
 
@@ -305,7 +305,7 @@
 
 # **COMPACTION in the FUTURE**
 
-- Generally must compact after derivative, or else cyclic → 💥
+- Generally must compact after derivative, or else cyclic → 🔄
 
 	- Can we avoid complex parsers altogether in some cases?
 
@@ -343,7 +343,7 @@
 
 	- The language doesn’t have pattern matching 😭
 
-	- Implemented pattern matching for parsers *using* parsers 💫💥
+	- Implemented pattern matching for parsers *using* parsers 💫🌀
 
 - Nontermination is much harder to solve, e.g. `-isEqual:` for equal cyclic grammars
 
