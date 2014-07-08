@@ -339,7 +339,7 @@ func derive(c: Alphabet) -> Recur {
 
 ---
 
-# **LAZINESS in OBJC**
+# **LAZINESS 😴 in OBJC**
 
 ```objectivec
 @implementation HMRDelayCombinator
