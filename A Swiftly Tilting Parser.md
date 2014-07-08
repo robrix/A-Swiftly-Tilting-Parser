@@ -370,6 +370,8 @@ HMRDelay([self derivativeWithRespectToObject:c]);
 
 ^In short, I can’t trust it. Coping with nontermination has been the single biggest headache with the Objective-C implementation.
 
+^I added the description method because I started explicitly logging delays so as to find more ways to aggressively remove them in order to try to avoid causing infinite loops. I was somewhat successful, but the scars are visible in the byzantine implementation that remains.
+
 ---
 
 # **LAZINESS 😴 in SWIFT**
@@ -393,6 +395,8 @@ HMRDelay([self derivativeWithRespectToObject:c]);
 	}
 }
 ```
+
+^By contrast, this is an extremely trustworthy little class. It’s less automatic, but also less magical, while still allowing conveniences such as `@auto_closure` to wrap the construction of new delays.
 
 ---
 
