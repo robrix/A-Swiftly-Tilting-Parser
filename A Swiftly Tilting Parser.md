@@ -191,7 +191,106 @@ extension Combinator {
 
 ---
 
-# *derivative in Objective-C and Swift*
+# **TERMINAL DERIVATIVE in OBJC**
+
+```objectivec
+// Literal
+-(HMRCombinator *)derivative:(id)object {
+  return [self evaluateWithObject:object]?
+    [HMRCombinator captureTree:object]
+  : [HMRCombinator empty];
+}
+
+// Null
+-(HMRCombinator *)derivative:(id)object {
+  return [HMRCombinator empty];
+}
+
+// Empty
+-(HMRCombinator *)derivative:(id)object {
+  return self;
+}
+```
+
+^Each kind of parser is a different class in ObjC, so these are all separate methods from separate classes—`HMRLiteral`, `HMRNull`, `HMREmpty`, and so on.
+
+^The derivative of terminals—parsers which aren’t built from other parsers—is straightforward. Literals derive to a null parse containing the input they match it, or else empty. Null and empty both derive to empty.
+
+---
+
+# **NONTERMINAL DERIVATIVE in OBJC**
+
+```objectivec
+// Alternation
+-(HMRCombinator *)deriveWithRespectToObject:(id)object {
+  return [[self.left derivative:object] or:[self.right derivative:object]];
+}
+
+// Concatenation
+-(HMRCombinator *)deriveWithRespectToObject:(id)object {
+  HMRCombinator *first = self.first;
+  HMRCombinator *second = self.second;
+  HMRCombinator *derivativeAfterFirst = [[first derivative:object] concat:second];
+  return HMRCombinatorIsNullable(first)?
+    [derivativeAfterFirst or:[[HMRCombinator capture:first.parseForest] concat:[second derivative:object]]]
+  : derivativeAfterFirst;
+}
+
+// Repetition
+-(HMRCombinator *)deriveWithRespectToObject:(id)object {
+  return [[self.combinator derivative:object] concat:self];
+}
+
+// Reduction
+-(HMRReduction *)deriveWithRespectToObject:(id)object {
+  return [[self.combinator derivative:object] mapSet:self.block];
+}
+```
+
+^The derivative of alternation is simple: it’s the alternation of its parsers’ derivatives.
+
+^Reduction too: it’s the reduction of its parser’s derivative by its block.
+
+^Repetition concatenates the derivative of its parser with itself, peeling off copies behind it.
+
+^Concatenation is more complicated. If first is nullable, the derivative of the concatenation is the derivative of first, concatenated with second, *or* the parse trees of first concatenated with the derivative of second. If first is not nullable, then the derivative of the concatenation is just the derivative of first, concatenated with second.
+
+---
+
+# **DERIVATIVE in SWIFT**
+
+```swift
+func derive<Alphabet : Alphabet>(combinator: Combinator<Alphabet>, character: Alphabet) -> Combinator<Alphabet> {
+  let derive: (Combinator<Alphabet>, Alphabet) -> Combinator<Alphabet> =
+    fixpoint(combinator, { HashablePair($0, $1) }) { recur, parameters in
+    let (combinator, character) = parameters
+    switch combinator.language {
+    case let .Literal(c) where c == character:
+      return Combinator(.Null(ParseTree(leaf: c)))
+    
+    case let .Alternation(x, y):
+      return Combinator(.Alternation(delay(recur(x, character)), delay(recur(y, character))))
+      
+    case let .Concatenation(x, y) where x.forced.nullable:
+      return recur(x, character) ++ y | Combinator(parsed: x.forced.parseForest) ++ recur(y, character)
+    case let .Concatenation(x, y):
+      return recur(x, character) ++ y
+      
+    case let .Repetition(x):
+      return recur(x, character) ++ combinator
+      
+    case let .Reduction(x, f):
+      return recur(x, character) --> f
+      
+    default:
+      return Combinator(.Empty)
+    }
+  }
+  return derive(combinator, character)
+}
+```
+
+^Because languages in Swift are an enum, 
 
 ---
 
