@@ -88,6 +88,26 @@
 
 ---
 
+# **PARSERS in SWIFT**
+
+```swift
+enum Language<Alphabet : Alphabet, Recur> {
+  case Literal(Box<Alphabet>)
+  
+  case Alternation(Delay<Recur>, Delay<Recur>)
+  case Concatenation(Delay<Recur>, Delay<Recur>)
+  case Repetition(Delay<Recur>)
+  case Reduction(Delay<Recur>, Alphabet -> Any)
+  
+  case Empty
+  case Null(ParseTree<Alphabet>)
+}
+```
+
+^This is the whole thing. I don’t have to write a single init method. I don’t have to write properties. I don’t even have to inject delays into the graph when I discover it needs them.
+
+---
+
 # **THE DERIVATIVE of PARSERS**
 
 - Might, Darais, & Spiewak’s 2011 paper *[Parsing with Derivatives—a Functional Pearl](http://matt.might.net/papers/might2011derivatives.pdf)*
