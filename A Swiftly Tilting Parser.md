@@ -88,7 +88,20 @@
 
 ---
 
-# *parsing in Objective-C and Swift*
+# **PARSING in OBJC**
+
+```objc
+NSSet *HMRParseCollection(HMRCombinator *parser, id<REDReducible> reducible) {
+	parser = [reducible red_reduce:parser usingBlock:^(HMRCombinator *parser, id each) {
+		return [parser derivative:each];
+	}];
+	return parser.parseForest;
+}
+```
+
+^The ObjC version is a function taking a parser and a sequence, and returning a set containing parse trees.
+It doesn’t explicitly compact the grammar like we discussed before; instead, this is done in the `-derivative:` method.
+
 
 ---
 
