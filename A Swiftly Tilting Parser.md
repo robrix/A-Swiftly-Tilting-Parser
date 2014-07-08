@@ -1413,6 +1413,8 @@ func compact() -> Combinator<Alphabet> {
 	- Safer & more productive
 
 	- Types enable better optimizations → _fast!_
+
+^Ultimately, Swift is a much better tool for this (and other) jobs. I’m excited about what it allows today, and where it’s headed, both in terms of improving performance and giving us a better way to work.
 	
 ---
 
