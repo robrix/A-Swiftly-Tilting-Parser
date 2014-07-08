@@ -426,12 +426,17 @@ HMRDelay([self derivativeWithRespectToObject:c]);
 ```objectivec
 #define HMRMemoize(x, start, body) ((x) ?: ((x = (start)), (x = (body))))
 
+// HMRNonterminal.m
 -(HMRCombinator *)derivative:(id<NSObject, NSCopying>)object {
   return HMRMemoize(_derivativesByElements[object],
     [HMRCombinator empty],
     [self deriveWithRespectToObject:object].compaction);
 }
 ```
+
+^In Objective-C, I memoize into an instance variable using a macro. (There’s also another mechanism which we’ll see later.)
+
+^All the nonterminal parsers inherit from `HMRNonterminal`, which memoizes their implementations of the derivative; this avoids me having to do it again and again in every subclass.
 
 ---
 
