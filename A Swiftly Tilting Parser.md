@@ -542,9 +542,9 @@ func | <Alphabet : Alphabet>
 }
 ```
 
-^By contrast, this is an extremely trustworthy little class. It’s less automatic, but also less magical, while still allowing conveniences such as `@auto_closure` to wrap the construction of new delays.
+^This is the entirety of how laziness is implemented (and an example of how it is used) in Swift.
 
-^I have hash & equality & a convenience constructor as functions, but this is a sufficient description of the class itself.
+^By contrast with the Objective-C version, this is very easy to trust. It’s less automatic, but also less magical, while still allowing conveniences such as `@auto_closure` to avoid having to manually insert delays when constructing a grammar.
 
 ---
 
