@@ -62,19 +62,19 @@
 
 # **KINDS of PARSERS**
 
-- Literal: match a specific character
+- _Literal_: match a specific character
 
-- Alternation: match x or y
+- **Alternation:** match _x_ **or** _y_
 
-- Concatenation: match x and then y
+- **Concatenation:** match _x_ & **then** _y_
 
-- Repetition: match x zero or more times
+- **Repetition:** match _x_ **zero or more** times
 
-- Reduction: match x & map with a function
+- **Reduction:** match _x_ & **map** with a function
 
-- Null: match the empty string; hold parse trees
+- _Null_: match the empty string; hold parse trees
 
-- Empty: never ever match
+- _Empty_: never ever match
 
 ^Literal, null, and empty are “terminal”—they don’t involve other parsers.
 
