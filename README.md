@@ -2,6 +2,8 @@
 
 [My talk](https://github.com/robrix/A-Swiftly-Tilting-Parser/blob/master/A%20Swiftly%20Tilting%20Parser.pdf) about the [derivative of parser combinators](http://matt.might.net/articles/parsing-with-derivatives/), to be given at [TACOW](https://tacow.org/) on July 8th, 2014.
 
+The slides are also available on [SpeakerDeck](https://speakerdeck.com/robrix/a-swiftly-tilting-parser).
+
 ### References
 
 - *[Parsing with Derivatives—A Functional Pearl][PwD]*, by Matthew Might, David Darais, and Daniel Spiewak
